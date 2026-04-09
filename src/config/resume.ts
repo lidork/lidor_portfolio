@@ -23,6 +23,8 @@ export interface ResumeEducation {
   end: string;
   display: string;
   accent: string;
+  statValue?: string;    // e.g. "CS"
+  statLabel?: string;    // e.g. "Degree WIP"
 }
 
 export interface ResumeSkillGroup {
@@ -101,6 +103,8 @@ export const RESUME_DATA: ResumeConfig = {
       end: '2026-01-01',
       display: '2024 – 2026',
       accent: '#a78bfa',
+      statValue: 'CS',
+      statLabel: 'Degree WIP',
     },
   ],
   skillGroups: [

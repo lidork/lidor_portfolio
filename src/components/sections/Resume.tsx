@@ -29,7 +29,7 @@ export function Resume({ isActive }: ResumeProps) {
         <button
           className="resume-download-btn"
           type="button"
-          onClick={() => window.open(EXTERNAL_LINKS.CV)}
+          onClick={() => window.open(EXTERNAL_LINKS.CV, '_blank', 'noopener,noreferrer')}
         >
           <DownloadIcon />
           <span>Download CV</span>
@@ -46,10 +46,12 @@ export function Resume({ isActive }: ResumeProps) {
           <span className="resume-stat-value">{RESUME_DATA.roles.length}</span>
           <span className="resume-stat-label">Roles</span>
         </div>
-        <div className="resume-stat-tile">
-          <span className="resume-stat-value">CS</span>
-          <span className="resume-stat-label">Degree WIP</span>
-        </div>
+        {RESUME_DATA.education[0]?.statValue && (
+          <div className="resume-stat-tile">
+            <span className="resume-stat-value">{RESUME_DATA.education[0].statValue}</span>
+            <span className="resume-stat-label">{RESUME_DATA.education[0].statLabel}</span>
+          </div>
+        )}
       </div>
 
       {/* Skills */}
