@@ -1903,7 +1903,7 @@ textarea.form-input::-webkit-resizer {
   font-size: var(--fs-8);
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s;
+  transition: background var(--transition-1), border-color var(--transition-1);
   /* reset button defaults */
   font-family: inherit;
   line-height: 1;
@@ -1926,7 +1926,7 @@ textarea.form-input::-webkit-resizer {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.15s, color 0.15s;
+  transition: background var(--transition-1), color var(--transition-1);
 }
 
 .resume-skill-pill--active .resume-skill-badge {
@@ -1942,7 +1942,8 @@ textarea.form-input::-webkit-resizer {
 }
 
 .resume-skill-expand--open {
-  max-height: 200px;
+  /* large enough for any skill list — max-height technique requires a fixed ceiling */
+  max-height: 300px;
   opacity: 1;
 }
 
