@@ -1874,12 +1874,6 @@ textarea.form-input::-webkit-resizer {
   background: linear-gradient(to right, hsla(210, 100%, 72%, 0.2), transparent);
 }
 
-.resume-skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
 .resume-skill-chip {
   background: hsla(210, 100%, 72%, 0.08);
   color: var(--vegas-gold);
@@ -1887,6 +1881,91 @@ textarea.form-input::-webkit-resizer {
   border-radius: 12px;
   padding: 4px 11px;
   font-size: var(--fs-8);
+}
+
+/* --- Skills category pills --- */
+
+.resume-skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.resume-skill-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: hsla(210, 100%, 72%, 0.08);
+  color: var(--vegas-gold);
+  border: 1px solid hsla(210, 100%, 72%, 0.22);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: var(--fs-8);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  /* reset button defaults */
+  font-family: inherit;
+  line-height: 1;
+}
+
+.resume-skill-pill:hover,
+.resume-skill-pill--active {
+  background: hsla(210, 100%, 72%, 0.16);
+  border-color: var(--vegas-gold);
+}
+
+.resume-skill-badge {
+  background: hsla(210, 100%, 72%, 0.2);
+  color: var(--vegas-gold);
+  border-radius: 50%;
+  width: 19px;
+  height: 19px;
+  font-size: 11px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+}
+
+.resume-skill-pill--active .resume-skill-badge {
+  background: var(--vegas-gold);
+  color: var(--eerie-black-1);
+}
+
+.resume-skill-expand {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.28s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s;
+}
+
+.resume-skill-expand--open {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.resume-skill-expand-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px 14px;
+  margin-top: 10px;
+  background: hsla(210, 100%, 72%, 0.05);
+  border: 1px solid hsla(210, 100%, 72%, 0.14);
+  border-radius: 10px;
+}
+
+.resume-skill-expand-label {
+  width: 100%;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vegas-gold);
+  opacity: 0.6;
+  margin-bottom: 2px;
 }
 
 .resume-timeline {
