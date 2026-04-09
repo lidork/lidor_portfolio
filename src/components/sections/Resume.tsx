@@ -1,24 +1,13 @@
 import { DownloadIcon } from '../icons';
 import { EXTERNAL_LINKS } from '../../config/links';
 import { RESUME_DATA } from '../../config/resume';
-import type { ResumeRole } from '../../config/resume';
 
 interface ResumeProps {
   isActive: boolean;
 }
 
-function getTotalYearsExperience(roles: ResumeRole[]): string {
-  const earliest = roles.reduce((min, r) => {
-    const t = new Date(r.start).getTime();
-    return t < min ? t : min;
-  }, Infinity);
-  const years = Math.floor((Date.now() - earliest) / (1000 * 60 * 60 * 24 * 365));
-  return `${years}+`;
-}
-
 export function Resume({ isActive }: ResumeProps) {
   const allSkills = RESUME_DATA.skillGroups.flatMap(g => g.skills);
-  const yearsExp = getTotalYearsExperience(RESUME_DATA.roles);
 
   return (
     <article className={`resume${isActive ? ' active' : ''}`} data-page="resume">
@@ -34,24 +23,6 @@ export function Resume({ isActive }: ResumeProps) {
           <DownloadIcon />
           <span>Download CV</span>
         </button>
-      </div>
-
-      {/* Stats strip */}
-      <div className="resume-stats-strip">
-        <div className="resume-stat-tile">
-          <span className="resume-stat-value">{yearsExp}</span>
-          <span className="resume-stat-label">Yrs Exp</span>
-        </div>
-        <div className="resume-stat-tile">
-          <span className="resume-stat-value">{RESUME_DATA.roles.length}</span>
-          <span className="resume-stat-label">Roles</span>
-        </div>
-        {RESUME_DATA.education[0]?.statValue && (
-          <div className="resume-stat-tile">
-            <span className="resume-stat-value">{RESUME_DATA.education[0].statValue}</span>
-            <span className="resume-stat-label">{RESUME_DATA.education[0].statLabel}</span>
-          </div>
-        )}
       </div>
 
       {/* Skills */}
@@ -87,9 +58,11 @@ export function Resume({ isActive }: ResumeProps) {
                   <span className="resume-timeline-date">{role.display}</span>
                 </div>
                 <div className="resume-timeline-company">{role.company}</div>
-                <p className="resume-timeline-desc">
-                  {role.bullets.join(' · ')}
-                </p>
+                <ul className="resume-timeline-bullets">
+                  {role.bullets.map((bullet, k) => (
+                    <li key={k}>{bullet}</li>
+                  ))}
+                </ul>
                 <div className="resume-impact-strip">
                   <span className="resume-impact-label">Key Impact</span>
                   <span className="resume-impact-text">
