@@ -18,3 +18,8 @@ export const MobileIcon      = (p: IconProps) => <MaskIcon src={`${base}assets/i
 export const GameIcon        = (p: IconProps) => <MaskIcon src={`${base}assets/icons/gameboy-video-game-games-device-svgrepo-com.svg`}    {...p} />;
 export const DesignIcon      = (p: IconProps) => <MaskIcon src={`${base}assets/icons/web-svgrepo-com.svg`}                                {...p} />;
 export const BackendIcon     = (p: IconProps) => <MaskIcon src={`${base}assets/icons/server-svgrepo-com.svg`}                             {...p} />;
+
+
+export const FrontendIcon = DesignIcon;
+export const ToolingIcon = GithubIcon;
+export const SoftSkillsIcon = TimelineIcon;

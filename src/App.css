@@ -1877,12 +1877,21 @@ textarea.form-input::-webkit-resizer {
 }
 
 .resume-skill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   background: hsla(210, 100%, 72%, 0.08);
   color: var(--vegas-gold);
   border: 1px solid hsla(210, 100%, 72%, 0.2);
   border-radius: 12px;
-  padding: 4px 11px;
+  padding: 4px 10px;
   font-size: var(--fs-8);
+  line-height: 1;
+}
+
+.resume-skill-chip-icon {
+  flex: 0 0 auto;
+  opacity: 0.9;
 }
 
 /* --- Skills category pills --- */

@@ -27,9 +27,33 @@ export interface ResumeEducation {
   statLabel?: string;    // e.g. "Degree WIP"
 }
 
+export interface ResumeSkill {
+  name: string;
+  icon?:
+    | 'react'
+    | 'typescript'
+    | 'html'
+    | 'vite'
+    | 'python'
+    | 'node'
+    | 'bash'
+    | 'unity'
+    | 'unreal'
+    | 'csharp'
+    | 'cplusplus'
+    | 'git'
+    | 'linux'
+    | 'jira'
+    | 'cicd'
+    | 'problemSolving'
+    | 'storytelling'
+    | 'selfLearning'
+    | 'leadership';
+}
+
 export interface ResumeSkillGroup {
   category: string;
-  skills: string[];
+  skills: ResumeSkill[];
 }
 
 export interface ResumeConfig {
@@ -110,23 +134,47 @@ export const RESUME_DATA: ResumeConfig = {
   skillGroups: [
     {
       category: 'Frontend',
-      skills: ['React', 'TypeScript', 'HTML/CSS', 'Vite'],
+      skills: [
+        { name: 'React', icon: 'react' },
+        { name: 'TypeScript', icon: 'typescript' },
+        { name: 'HTML/CSS', icon: 'html' },
+        { name: 'Vite', icon: 'vite' },
+      ],
     },
     {
       category: 'Backend',
-      skills: ['Python', 'Node.js', 'Bash'],
+      skills: [
+        { name: 'Python', icon: 'python' },
+        { name: 'Node.js', icon: 'node' },
+        { name: 'Bash', icon: 'bash' },
+      ],
     },
     {
       category: 'Game Dev',
-      skills: ['Unity', 'Unreal Engine', 'C#', 'C++'],
+      skills: [
+        { name: 'Unity', icon: 'unity' },
+        { name: 'Unreal Engine', icon: 'unreal' },
+        { name: 'C#', icon: 'csharp' },
+        { name: 'C++', icon: 'cplusplus' },
+      ],
     },
     {
       category: 'Tools',
-      skills: ['Git', 'Linux', 'Jira/Monday', 'CI/CD'],
+      skills: [
+        { name: 'Git', icon: 'git' },
+        { name: 'Linux', icon: 'linux' },
+        { name: 'Jira/Monday', icon: 'jira' },
+        { name: 'CI/CD', icon: 'cicd' },
+      ],
     },
     {
       category: 'Soft Skills',
-      skills: ['Problem Solving', 'Storytelling', 'Self Learning', 'Leadership',],
+      skills: [
+        { name: 'Problem Solving', icon: 'problemSolving' },
+        { name: 'Storytelling', icon: 'storytelling' },
+        { name: 'Self Learning', icon: 'selfLearning' },
+        { name: 'Leadership', icon: 'leadership' },
+      ],
     },
   ],
 };
