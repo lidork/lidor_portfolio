@@ -1977,3 +1977,9 @@ textarea.form-input::-webkit-resizer {
   color: var(--light-gray-70);
   line-height: 1.5;
 }
+
+@media (max-width: 400px) {
+  .resume-stats-strip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
