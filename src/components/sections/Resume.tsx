@@ -1,103 +1,136 @@
-import { TimelineIcon, DownloadIcon } from '../icons';
+import { DownloadIcon } from '../icons';
 import { EXTERNAL_LINKS } from '../../config/links';
+import { RESUME_DATA } from '../../config/resume';
+import type { ResumeRole } from '../../config/resume';
 
 interface ResumeProps {
   isActive: boolean;
 }
 
-function calculateDuration(startDate: string, endDate: string | 'present'): string {
-  const start = new Date(startDate);
-  const end = endDate === 'present' ? new Date() : new Date(endDate);
-  const totalDays = (end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24);
-  const years = Math.floor(totalDays / 365);
-  const months = Math.floor((totalDays % 365) / 30);
-  if (years > 0) {
-    return months > 0 ? `${years} yr ${months} mo` : `${years} yr`;
-  }
-  return `${months} mo`;
+function getTotalYearsExperience(roles: ResumeRole[]): string {
+  const earliest = roles.reduce((min, r) => {
+    const t = new Date(r.start).getTime();
+    return t < min ? t : min;
+  }, Infinity);
+  const years = Math.floor((Date.now() - earliest) / (1000 * 60 * 60 * 24 * 365));
+  return `${years}+`;
 }
 
 export function Resume({ isActive }: ResumeProps) {
+  const allSkills = RESUME_DATA.skillGroups.flatMap(g => g.skills);
+  const yearsExp = getTotalYearsExperience(RESUME_DATA.roles);
+
   return (
     <article className={`resume${isActive ? ' active' : ''}`} data-page="resume">
-      <header>
+
+      {/* Header */}
+      <div className="resume-header">
         <h2 className="h2 article-title">Resume</h2>
-      </header>
+        <button
+          className="resume-download-btn"
+          type="button"
+          onClick={() => window.open(EXTERNAL_LINKS.CV)}
+        >
+          <DownloadIcon />
+          <span>Download CV</span>
+        </button>
+      </div>
 
-      <section className="timeline">
-        <div className="title-wrapper">
-          <div className="icon-box"><TimelineIcon /></div>
-          <h3 className="h3">Education</h3>
+      {/* Stats strip */}
+      <div className="resume-stats-strip">
+        <div className="resume-stat-tile">
+          <span className="resume-stat-value">{yearsExp}</span>
+          <span className="resume-stat-label">Yrs Exp</span>
         </div>
-        <ol className="timeline-list">
-          <li className="timeline-item">
-            <h4 className="h4 timeline-item-title">Holon Institute of Technology</h4>
-            <p className="timeline-text">Computer Science B.Sc. (Software Engineering Emphasis)</p>
-            <span>
-              2024 - 2026 •{' '}
-              <span className="duration">{calculateDuration('2024-01-01', '2026-01-01')}</span>
-            </span>
-          </li>
-        </ol>
-      </section>
-
-      <section className="timeline">
-        <div className="title-wrapper">
-          <div className="icon-box"><TimelineIcon /></div>
-          <h3 className="h3">Experience</h3>
+        <div className="resume-stat-tile">
+          <span className="resume-stat-value">{RESUME_DATA.roles.length}</span>
+          <span className="resume-stat-label">Roles</span>
         </div>
-        <ol className="timeline-list">
-          <li className="timeline-item">
-            <h4 className="h4 timeline-item-title">QA Tester</h4>
-            <p className="timeline-text">Microchip</p>
-            <span>
-              2022 - 2023 •{' '}
-              <span className="duration">{calculateDuration('2022-01-01', '2023-01-01')}</span>
-            </span>
-            <ul className="timeline-text">
-              <li>Conducted comprehensive testing of hardware components to ensure functionality and performance standards were met.</li>
-              <li>Developed and executed test plans, identifying and documenting issues with detailed reports.</li>
-              <li>Collaborated with engineers to troubleshoot and resolve hardware and software integration issues.</li>
-            </ul>
-          </li>
-          <li className="timeline-item">
-            <h4 className="h4 timeline-item-title">Network and Communication System Supervisor</h4>
-            <p className="timeline-text">Israeli Air Force (IAF)</p>
-            <span>
-              2018 - 2020 •{' '}
-              <span className="duration">{calculateDuration('2018-01-01', '2020-01-01')}</span>
-            </span>
-            <ul className="timeline-text">
-              <li>Managed and maintained complex network systems, ensuring seamless communication and operational efficiency.</li>
-              <li>Provided HelpDesk and IT support for more than 100 users.</li>
-              <li>Developed automation scripts in Python and Bash to streamline issue resolution.</li>
-            </ul>
-          </li>
-          <li className="timeline-item">
-            <h4 className="h4 timeline-item-title">Editor in Chief</h4>
-            <p className="timeline-text">PCGalaxy.co.il</p>
-            <span>
-              2014 - 2019 •{' '}
-              <span className="duration">{calculateDuration('2014-01-01', '2019-01-01')}</span>
-            </span>
-            <ul className="timeline-text">
-              <li>Authored in-depth reviews and articles on various PC games, demonstrating a deep understanding of game mechanics and design.</li>
-              <li>Conducted interviews with game developers and industry experts.</li>
-              <li>Established business and press relations with game publishers and developers.</li>
-            </ul>
-          </li>
-        </ol>
-      </section>
+        <div className="resume-stat-tile">
+          <span className="resume-stat-value">CS</span>
+          <span className="resume-stat-label">Degree WIP</span>
+        </div>
+      </div>
 
-      <button
-        className="form-btn"
-        type="button"
-        data-form-btn=""
-        onClick={() => window.open(EXTERNAL_LINKS.CV)}
-      >
-        <DownloadIcon />
-        <span>Download CV</span>
-      </button>
+      {/* Skills */}
+      <div className="resume-section">
+        <div className="resume-section-header">
+          <span className="resume-section-label">Skills</span>
+          <div className="resume-section-rule" />
+        </div>
+        <div className="resume-skills-list">
+          {allSkills.map(skill => (
+            <span key={skill} className="resume-skill-chip">{skill}</span>
+          ))}
+        </div>
+      </div>
+
+      {/* Experience */}
+      <div className="resume-section">
+        <div className="resume-section-header">
+          <span className="resume-section-label">Experience</span>
+          <div className="resume-section-rule" />
+        </div>
+        <div className="resume-timeline">
+          {RESUME_DATA.roles.map((role, i) => (
+            <div
+              key={i}
+              className={`resume-timeline-item${i === RESUME_DATA.roles.length - 1 ? ' resume-timeline-item--last' : ''}`}
+              style={{ '--role-accent': role.accent } as React.CSSProperties}
+            >
+              <div className="resume-timeline-dot" />
+              <div className="resume-timeline-content">
+                <div className="resume-timeline-title-row">
+                  <span className="resume-timeline-title">{role.title}</span>
+                  <span className="resume-timeline-date">{role.display}</span>
+                </div>
+                <div className="resume-timeline-company">{role.company}</div>
+                <p className="resume-timeline-desc">
+                  {role.bullets.join(' · ')}
+                </p>
+                <div className="resume-impact-strip">
+                  <span className="resume-impact-label">Key Impact</span>
+                  <span className="resume-impact-text">
+                    {role.metrics.map((m, j) => (
+                      <span key={j}>
+                        {m.icon} {m.label}
+                        {j < role.metrics.length - 1 ? ' · ' : ''}
+                      </span>
+                    ))}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Education */}
+      <div className="resume-section">
+        <div className="resume-section-header">
+          <span className="resume-section-label">Education</span>
+          <div className="resume-section-rule" />
+        </div>
+        <div className="resume-timeline">
+          {RESUME_DATA.education.map((edu, i) => (
+            <div
+              key={i}
+              className="resume-timeline-item resume-timeline-item--last"
+              style={{ '--role-accent': edu.accent } as React.CSSProperties}
+            >
+              <div className="resume-timeline-dot" />
+              <div className="resume-timeline-content">
+                <div className="resume-timeline-title-row">
+                  <span className="resume-timeline-title">{edu.institution}</span>
+                  <span className="resume-timeline-date">{edu.display}</span>
+                </div>
+                <div className="resume-timeline-company">{edu.degree}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
     </article>
   );
 }
