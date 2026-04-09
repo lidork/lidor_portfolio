@@ -53,9 +53,9 @@ export const RESUME_DATA: ResumeConfig = {
         'Collaborated with engineers to troubleshoot and resolve hardware and software integration issues.',
       ],
       metrics: [
-        { icon: '🐛', label: '50+ bugs documented' },
+        { icon: '🐛', label: 'Documented 30+ Hardware/Software Issues' },
         { icon: '📋', label: 'Full test plan coverage' },
-        { icon: '⚙️', label: 'HW/SW integration' },
+        { icon: '⚙️', label: 'Manual and Automated Testing' },
       ],
     },
     {
@@ -72,7 +72,7 @@ export const RESUME_DATA: ResumeConfig = {
       ],
       metrics: [
         { icon: '👥', label: '100+ users supported' },
-        { icon: '⚡', label: 'Halved resolution time' },
+        { icon: '⚡', label: '50% reduction in resolution time' },
         { icon: '🤖', label: 'Python + Bash automation' },
       ],
     },
@@ -89,9 +89,9 @@ export const RESUME_DATA: ResumeConfig = {
         'Established business and press relations with game publishers and developers.',
       ],
       metrics: [
-        { icon: '✍️', label: '200+ articles published' },
-        { icon: '🎙️', label: 'Developer interviews' },
-        { icon: '🤝', label: 'Publisher relations' },
+        { icon: '✍️', label: '2000+ articles published' },
+        { icon: '🎙️', label: 'Audited 1000+ articles' },
+        { icon: '🤝', label: 'Developer and Publisher relations' },
       ],
     },
   ],
@@ -104,7 +104,7 @@ export const RESUME_DATA: ResumeConfig = {
       display: '2024 – 2026',
       accent: '#a78bfa',
       statValue: 'CS',
-      statLabel: 'Degree WIP',
+      statLabel: 'Degree',
     },
   ],
   skillGroups: [
@@ -117,8 +117,16 @@ export const RESUME_DATA: ResumeConfig = {
       skills: ['Python', 'Node.js', 'Bash'],
     },
     {
+      category: 'Game Dev',
+      skills: ['Unity', 'Unreal Engine', 'C#', 'C++'],
+    },
+    {
       category: 'Tools',
-      skills: ['Git', 'Linux', 'Networking'],
+      skills: ['Git', 'Linux', 'Jira/Monday', 'CI/CD'],
+    },
+    {
+      category: 'Soft Skills',
+      skills: ['Problem Solving', 'Storytelling', 'Self Learning', 'Leadership',],
     },
   ],
 };
