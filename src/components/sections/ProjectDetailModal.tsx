@@ -57,7 +57,7 @@ export function ProjectDetailModal({ project, onClose }: ProjectDetailModalProps
         </div>
 
         <div className="project-detail-content">
-          <p className="project-detail-category">{project.category}</p>
+          <p className="project-detail-category">{project.categories.join(' · ')}</p>
           <h3 id={`project-modal-title-${project.id}`} className="project-detail-title">
             {project.title}
           </h3>

@@ -6,7 +6,7 @@ export type ProjectCategory = 'Mobile Apps' | 'Game development' | 'Full Stack';
 export interface ProjectItem {
   id: string;
   title: string;
-  category: ProjectCategory;
+  categories: ProjectCategory[];
   shortDescription: string;
   fullDescription: string[];
   gridImage: string;
@@ -20,7 +20,7 @@ export const PROJECT_ITEMS: ProjectItem[] = [
   {
     id: 'pain-project',
     title: 'Pain Project',
-    category: 'Mobile Apps',
+    categories: ['Mobile Apps', 'Full Stack'],
     shortDescription:
       'A pain tracking and analysis app focused on intuitive daily logging and useful trend visualization.',
     fullDescription: [
@@ -35,7 +35,7 @@ export const PROJECT_ITEMS: ProjectItem[] = [
   {
     id: 'suika-dungeon',
     title: 'Suika Dungeon',
-    category: 'Game development',
+    categories: ['Game development'],
     shortDescription:
       'Arcade-style game loop with balanced progression and lightweight visual effects.',
     fullDescription: [
@@ -51,7 +51,7 @@ export const PROJECT_ITEMS: ProjectItem[] = [
   {
     id: 'crypto-clicker',
     title: 'Crypto Clicker',
-    category: 'Game development',
+    categories: ['Game development', 'Full Stack'],
     shortDescription:
       'Crypto-themed incremental game with satisfying progression, upgrades, and user feedback pacing.',
     fullDescription: [

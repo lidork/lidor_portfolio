@@ -35,7 +35,7 @@ export function Portfolio({ isActive }: PortfolioProps) {
   const filteredProjects =
     selectedCategory === 'All'
       ? PROJECT_ITEMS
-      : PROJECT_ITEMS.filter(p => p.category === selectedCategory);
+      : PROJECT_ITEMS.filter(p => p.categories.includes(selectedCategory));
 
   return (
     <article className={`portfolio${isActive ? ' active' : ''}`} data-page="portfolio">
