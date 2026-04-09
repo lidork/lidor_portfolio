@@ -5,6 +5,7 @@ export const EXTERNAL_LINKS = {
   EMAIL: 'kalfonlidor@gmail.com',
   CV: `${import.meta.env.BASE_URL}assets/files/Lidor_CV_2026.pdf`,
   SUIKA: 'https://github.com/lidork/Suika_Dungeon',
+  SUIKA_DEMO: 'https://walidor.itch.io/suika-dungeon',
   PAIN_PROJECT: 'https://github.com/lidork/Pain_Project',
   CRYPTO_CLICKER: 'https://github.com/lidork/CryptoClicker',
 } as const;

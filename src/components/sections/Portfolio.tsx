@@ -1,57 +1,36 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { EyeIcon, ChevronDownIcon } from '../icons';
-import { ASSET_PATHS } from '../../config/assets';
-import { EXTERNAL_LINKS } from '../../config/links';
+import { PROJECT_ITEMS, type ProjectCategory, type ProjectItem } from '../../config/projects';
+import { ProjectDetailModal } from './ProjectDetailModal';
 
 interface PortfolioProps {
   isActive: boolean;
 }
 
-type Category = 'All' | 'Mobile Apps' | 'Game development' | 'Full Stack';
+type Category = 'All' | ProjectCategory;
 
 const CATEGORY_OPTIONS: Category[] = ['All', 'Mobile Apps', 'Game development', 'Full Stack'];
-
-const PROJECT_ITEMS = [
-  {
-    title: 'Pain Project',
-    category: 'Mobile Apps' as Category,
-    description: 'A Pain tracking and analysis app with a focus on intuitive data entry and insightful visualizations. Designed to help users identify patterns and triggers in their pain experience.',
-    image: ASSET_PATHS.PAIN_PROJECT,
-    link: EXTERNAL_LINKS.PAIN_PROJECT,
-  },
-  {
-    title: 'Suika Dungeon',
-    category: 'Game development' as Category,
-    description: 'Arcade-style game loop with balanced progression and lightweight visual effects. Built to keep sessions engaging while preserving smooth performance.',
-    image: ASSET_PATHS.SUIKA,
-    link: EXTERNAL_LINKS.SUIKA,
-  },
-  {
-    title: 'Crypto Clicker',
-    category: 'Game development' as Category,
-    description: 'Crypto currency themed incremental clicker game with a focus on satisfying feedback loops and engaging progression. Designed to be accessible while offering depth through strategic upgrades.',
-    image: ASSET_PATHS.CRYPTO_CLICKER,
-    link: EXTERNAL_LINKS.CRYPTO_CLICKER,
-  },
-  {
-    title: 'Web Platform',
-    category: 'Full Stack' as Category,
-    description: 'A clean interface system with reusable components and scalable page structures. Prioritizes clarity, accessibility, and fast content scanning.',
-    image: ASSET_PATHS.TEMPLATE,
-    link: EXTERNAL_LINKS.GITHUB,
-  },
-  {
-    title: 'Mobile App Two',
-    category: 'Mobile Apps' as Category,
-    description: 'Focused on retention with a polished onboarding sequence and smarter task grouping. Includes responsive feedback patterns that improve completion rates.',
-    image: ASSET_PATHS.TEMPLATE,
-    link: EXTERNAL_LINKS.GITHUB,
-  },
-];
 
 export function Portfolio({ isActive }: PortfolioProps) {
   const [selectedCategory, setSelectedCategory] = useState<Category>('All');
   const [isSelectOpen, setIsSelectOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
+  const lastTriggerRef = useRef<HTMLButtonElement | null>(null);
+
+  useEffect(() => {
+    if (!selectedProject && lastTriggerRef.current) {
+      lastTriggerRef.current.focus();
+    }
+  }, [selectedProject]);
+
+  const handleProjectOpen = (project: ProjectItem, trigger: HTMLButtonElement) => {
+    lastTriggerRef.current = trigger;
+    setSelectedProject(project);
+  };
+
+  const handleProjectClose = () => {
+    setSelectedProject(null);
+  };
 
   const filteredProjects =
     selectedCategory === 'All'
@@ -103,22 +82,29 @@ export function Portfolio({ isActive }: PortfolioProps) {
         </div>
 
         <ul className="project-list">
-          {filteredProjects.map((project, index) => (
-            <li key={index} className="project-item active">
-              <a href={project.link} target="_blank" rel="noreferrer">
+          {filteredProjects.map((project) => (
+            <li key={project.id} className="project-item active">
+              <button
+                type="button"
+                className="project-card-btn"
+                onClick={(event) => handleProjectOpen(project, event.currentTarget)}
+                aria-label={`Open details for ${project.title}`}
+              >
                 <figure className="project-img">
                   <div className="project-item-icon-box"><EyeIcon /></div>
-                  <img src={project.image} alt={project.title} loading="lazy" />
+                  <img src={project.heroImage} alt={project.title} loading="lazy" />
                 </figure>
                 <div className="project-content">
                   <h3 className="project-title">{project.title}</h3>
-                  <p className="project-description">{project.description}</p>
+                  <p className="project-description">{project.shortDescription}</p>
                 </div>
-              </a>
+              </button>
             </li>
           ))}
         </ul>
       </section>
+
+      <ProjectDetailModal project={selectedProject} onClose={handleProjectClose} />
     </article>
   );
 }

@@ -556,6 +556,11 @@ main {
   visibility: visible;
   pointer-events: all;
 }
+
+body.no-scroll {
+  overflow: hidden;
+}
+
 .testimonials-modal {
   background: var(--eerie-black-2);
   position: relative;
@@ -835,7 +840,7 @@ main {
     transform: scale(1);
   }
 }
-.project-item > a {
+.project-card-btn {
   width: 100%;
   display: block;
   background: var(--eerie-black-2);
@@ -843,6 +848,14 @@ main {
   border-radius: 14px;
   overflow: hidden;
   box-shadow: var(--shadow-1);
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+}
+
+.project-card-btn:focus-visible {
+  outline: 2px solid var(--orange-yellow-crayola);
+  outline-offset: 3px;
 }
 .project-img {
   position: relative;
@@ -863,7 +876,8 @@ main {
   z-index: 1;
   transition: var(--transition-1);
 }
-.project-item > a:hover .project-img:before {
+.project-card-btn:hover .project-img:before,
+.project-card-btn:focus-visible .project-img:before {
   background: #00000080;
 }
 .project-item-icon-box {
@@ -881,7 +895,8 @@ main {
   z-index: 1;
   transition: var(--transition-1);
 }
-.project-item > a:hover .project-item-icon-box {
+.project-card-btn:hover .project-item-icon-box,
+.project-card-btn:focus-visible .project-item-icon-box {
   --scale: 1;
   opacity: 1;
 }
@@ -894,8 +909,122 @@ main {
   object-fit: cover;
   transition: var(--transition-1);
 }
-.project-item > a:hover img {
+.project-card-btn:hover img,
+.project-card-btn:focus-visible img {
   transform: scale(1.1);
+}
+
+.project-detail-modal {
+  position: relative;
+  width: min(880px, calc(100vw - 24px));
+  margin: 14px 12px;
+  background: var(--eerie-black-2);
+  border: 1px solid var(--jet);
+  border-radius: 16px;
+  box-shadow: var(--shadow-5);
+  z-index: 2;
+  overflow: hidden;
+  display: grid;
+  gap: 0;
+}
+
+.project-modal-close-btn {
+  z-index: 3;
+}
+
+.project-detail-hero {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--onyx);
+}
+
+.project-detail-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-detail-content {
+  padding: 18px 16px 16px;
+}
+
+.project-detail-category {
+  margin: 0 0 6px;
+  font-size: var(--fs-8);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--orange-yellow-crayola);
+}
+
+.project-detail-title {
+  margin: 0 0 12px;
+  color: var(--white-2);
+  font-size: var(--fs-2);
+  line-height: 1.3;
+}
+
+.project-detail-copy {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.project-detail-copy p {
+  margin: 0;
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  line-height: 1.7;
+}
+
+.project-detail-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 16px;
+}
+
+.project-detail-stack li {
+  font-size: var(--fs-8);
+  color: var(--vegas-gold);
+  border: 1px solid hsla(45, 54%, 58%, 0.25);
+  background: hsla(45, 54%, 58%, 0.08);
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+
+.project-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.project-detail-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid hsla(45, 54%, 58%, 0.25);
+  border-radius: 10px;
+  padding: 8px 12px;
+  color: var(--white-2);
+  background: hsla(45, 54%, 58%, 0.08);
+  font-size: var(--fs-7);
+  transition: var(--transition-1);
+}
+
+.project-detail-action:hover,
+.project-detail-action:focus-visible {
+  background: hsla(45, 54%, 58%, 0.16);
+  color: var(--orange-yellow-crayola);
+}
+
+.project-detail-action:focus-visible {
+  outline: 2px solid var(--orange-yellow-crayola);
+  outline-offset: 2px;
+}
+
+.project-detail-action--primary {
+  border-color: hsla(45, 54%, 58%, 0.5);
 }
 .project-content {
   border-top: none;
@@ -1283,6 +1412,15 @@ textarea.form-input::-webkit-resizer {
     padding: 30px;
     border-radius: 20px;
   }
+
+  .project-detail-modal {
+    margin: 20px;
+    border-radius: 20px;
+  }
+
+  .project-detail-content {
+    padding: 24px 24px 22px;
+  }
   .modal-img-wrapper {
     display: flex;
     flex-direction: column;
@@ -1373,6 +1511,20 @@ textarea.form-input::-webkit-resizer {
   .testimonials-modal {
     gap: 35px;
     max-width: 680px;
+  }
+
+  .project-detail-modal {
+    grid-template-columns: minmax(280px, 44%) minmax(0, 1fr);
+    max-height: calc(100vh - 48px);
+  }
+
+  .project-detail-hero {
+    aspect-ratio: auto;
+    height: 100%;
+  }
+
+  .project-detail-content {
+    overflow-y: auto;
   }
   .modal-avatar-box img {
     width: 80px;

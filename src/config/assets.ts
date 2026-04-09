@@ -5,5 +5,7 @@ export const ASSET_PATHS = {
   TEMPLATE:     `${base}assets/images/template.png`,
   SUIKA:        `${base}assets/images/suika_image.png`,
   PAIN_PROJECT: `${base}assets/images/pain_project.png`,
+  PAIN_PROJECT_HERO: `${base}assets/images/pain_project_hero.png`,
   CRYPTO_CLICKER: `${base}assets/images/crypto_clicker.png`,
+  CRYPTO_CLICKER_HERO: `${base}assets/images/crypto_clicker_hero.png`,
 };
