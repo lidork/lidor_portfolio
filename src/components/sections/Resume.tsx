@@ -1,14 +1,13 @@
 import { DownloadIcon } from '../icons';
 import { EXTERNAL_LINKS } from '../../config/links';
 import { RESUME_DATA } from '../../config/resume';
+import { SkillsSection } from './SkillsSection';
 
 interface ResumeProps {
   isActive: boolean;
 }
 
 export function Resume({ isActive }: ResumeProps) {
-  const allSkills = RESUME_DATA.skillGroups.flatMap(g => g.skills);
-
   return (
     <article className={`resume${isActive ? ' active' : ''}`} data-page="resume">
 
@@ -31,11 +30,7 @@ export function Resume({ isActive }: ResumeProps) {
           <span className="resume-section-label">Skills</span>
           <div className="resume-section-rule" />
         </div>
-        <div className="resume-skills-list">
-          {allSkills.map(skill => (
-            <span key={skill} className="resume-skill-chip">{skill}</span>
-          ))}
-        </div>
+        <SkillsSection skillGroups={RESUME_DATA.skillGroups} />
       </div>
 
       {/* Experience */}
