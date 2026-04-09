@@ -92,7 +92,7 @@ export function Portfolio({ isActive }: PortfolioProps) {
               >
                 <figure className="project-img">
                   <div className="project-item-icon-box"><EyeIcon /></div>
-                  <img src={project.heroImage} alt={project.title} loading="lazy" />
+                  <img src={project.gridImage} alt={project.title} loading="lazy" />
                 </figure>
                 <div className="project-content">
                   <h3 className="project-title">{project.title}</h3>
