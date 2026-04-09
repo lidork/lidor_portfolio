@@ -1784,3 +1784,196 @@ textarea.form-input::-webkit-resizer {
     font-size: 15px;
   }
 }
+
+/* ── Resume Redesign ──────────────────────────────────────── */
+
+.resume-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.resume-download-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, var(--vegas-gold), hsl(210, 100%, 55%));
+  border: none;
+  color: var(--white-1);
+  font-size: var(--fs-7);
+  font-weight: var(--fw-600);
+  font-family: var(--ff-poppins);
+  padding: 7px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: opacity var(--transition-1);
+}
+
+.resume-download-btn:hover {
+  opacity: 0.85;
+}
+
+.resume-stats-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.resume-stat-tile {
+  background: var(--eerie-black-1);
+  border: 1px solid var(--jet);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.resume-stat-value {
+  font-size: var(--fs-1);
+  color: var(--vegas-gold);
+  font-weight: var(--fw-600);
+  line-height: 1;
+}
+
+.resume-stat-label {
+  font-size: var(--fs-8);
+  color: hsl(0, 0%, 40%);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.resume-section {
+  margin-bottom: 28px;
+}
+
+.resume-section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.resume-section-label {
+  font-size: var(--fs-8);
+  color: var(--vegas-gold);
+  font-weight: var(--fw-600);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+.resume-section-rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, hsla(210, 100%, 72%, 0.2), transparent);
+}
+
+.resume-skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.resume-skill-chip {
+  background: hsla(210, 100%, 72%, 0.08);
+  color: var(--vegas-gold);
+  border: 1px solid hsla(210, 100%, 72%, 0.2);
+  border-radius: 12px;
+  padding: 4px 11px;
+  font-size: var(--fs-8);
+}
+
+.resume-timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.resume-timeline-item {
+  border-left: 2px solid var(--role-accent, var(--vegas-gold));
+  padding: 0 0 24px 18px;
+  position: relative;
+}
+
+.resume-timeline-item--last {
+  padding-bottom: 4px;
+}
+
+.resume-timeline-dot {
+  position: absolute;
+  top: 4px;
+  left: -5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--role-accent, var(--vegas-gold));
+  box-shadow: 0 0 0 3px var(--eerie-black-2);
+}
+
+.resume-timeline-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.resume-timeline-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.resume-timeline-title {
+  font-size: var(--fs-5);
+  color: var(--white-1);
+  font-weight: var(--fw-600);
+}
+
+.resume-timeline-date {
+  font-size: var(--fs-8);
+  color: var(--vegas-gold);
+  font-family: monospace;
+  white-space: nowrap;
+}
+
+.resume-timeline-company {
+  font-size: var(--fs-7);
+  color: var(--light-gray-70);
+  margin-bottom: 6px;
+}
+
+.resume-timeline-desc {
+  font-size: var(--fs-7);
+  color: hsl(0, 0%, 50%);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.resume-impact-strip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: color-mix(in srgb, var(--role-accent, var(--vegas-gold)) 5%, transparent);
+  border: 1px solid color-mix(in srgb, var(--role-accent, var(--vegas-gold)) 15%, transparent);
+  border-radius: 6px;
+  padding: 7px 12px;
+}
+
+.resume-impact-label {
+  font-size: var(--fs-8);
+  color: var(--role-accent, var(--vegas-gold));
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: var(--fw-600);
+  white-space: nowrap;
+}
+
+.resume-impact-text {
+  font-size: var(--fs-8);
+  color: var(--light-gray-70);
+  line-height: 1.5;
+}
