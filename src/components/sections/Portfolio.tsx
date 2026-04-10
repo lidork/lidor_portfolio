@@ -95,6 +95,7 @@ export function Portfolio({ isActive }: PortfolioProps) {
                   <img src={project.gridImage} alt={project.title} loading="lazy" />
                 </figure>
                 <div className="project-content">
+                  <p className="project-category">{project.categories.join(' · ')}</p>
                   <h3 className="project-title">{project.title}</h3>
                   <p className="project-description">{project.shortDescription}</p>
                 </div>

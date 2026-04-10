@@ -28,34 +28,28 @@ export function Sidebar({ isActive, onToggle }: SidebarProps) {
         <div className="separator" />
         <ul className="contacts-list">
           <li className="contact-item">
-            <div className="icon-box"><MailIcon /></div>
-            <div className="contact-info">
-              <p className="contact-title">Email</p>
-              <a href={`mailto:${EXTERNAL_LINKS.EMAIL}`} className="contact-link">
-                {EXTERNAL_LINKS.EMAIL}
-              </a>
-            </div>
+            <MailIcon size={13} className="contact-icon" />
+            <a href={`mailto:${EXTERNAL_LINKS.EMAIL}`} className="contact-link">
+              {EXTERNAL_LINKS.EMAIL}
+            </a>
           </li>
           <li className="contact-item">
-            <div className="icon-box"><LocationIcon /></div>
-            <div className="contact-info">
-              <p className="contact-title">Location</p>
-              <a href={EXTERNAL_LINKS.MAP_LOCATION} target="_blank" rel="noopener noreferrer" className="contact-link">
-                Israel
-              </a>
-            </div>
+            <LocationIcon size={13} className="contact-icon" />
+            <a href={EXTERNAL_LINKS.MAP_LOCATION} target="_blank" rel="noopener noreferrer" className="contact-link">
+              Israel
+            </a>
           </li>
         </ul>
         <div className="separator" />
         <ul className="social-list">
           <li className="social-item">
             <a href={EXTERNAL_LINKS.LINKEDIN} target="_blank" rel="noopener noreferrer" className="social-link">
-              <LinkedInIcon />
+              <LinkedInIcon size={15} />
             </a>
           </li>
           <li className="social-item">
             <a href={EXTERNAL_LINKS.GITHUB} target="_blank" rel="noopener noreferrer" className="social-link">
-              <GithubIcon />
+              <GithubIcon size={15} />
             </a>
           </li>
         </ul>

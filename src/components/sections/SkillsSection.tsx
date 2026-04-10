@@ -33,22 +33,24 @@ export function SkillsSection({ skillGroups }: SkillsSectionProps) {
         ))}
       </div>
 
+      {/* Inner div always rendered — grid-template-rows transition requires a persistent DOM node */}
       <div className={`resume-skill-expand${activeGroup ? ' resume-skill-expand--open' : ''}`}>
-        {activeGroup && (
-          <div className="resume-skill-expand-inner">
-            <span className="resume-skill-expand-label">{activeGroup.category}</span>
-            {activeGroup.skills.map(skill => {
-              const skillIcon = skill.icon ? SKILL_ICON_DEFINITIONS[skill.icon] : null;
-
-              return (
-                <span key={skill.name} className="resume-skill-chip">
-                  {skillIcon && <FontAwesomeIcon icon={skillIcon} className="resume-skill-chip-icon" fixedWidth />}
-                  <span>{skill.name}</span>
-                </span>
-              );
-            })}
-          </div>
-        )}
+        <div className="resume-skill-expand-inner">
+          {activeGroup && (
+            <>
+              <span className="resume-skill-expand-label">{activeGroup.category}</span>
+              {activeGroup.skills.map(skill => {
+                const skillIcon = skill.icon ? SKILL_ICON_DEFINITIONS[skill.icon] : null;
+                return (
+                  <span key={skill.name} className="resume-skill-chip">
+                    {skillIcon && <FontAwesomeIcon icon={skillIcon} className="resume-skill-chip-icon" fixedWidth />}
+                    <span>{skill.name}</span>
+                  </span>
+                );
+              })}
+            </>
+          )}
+        </div>
       </div>
     </>
   );

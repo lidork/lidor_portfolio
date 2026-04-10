@@ -1,29 +1,23 @@
-import { MobileIcon, GameIcon, DesignIcon, BackendIcon } from '../icons';
-
 interface AboutProps {
   isActive: boolean;
 }
 
-const SERVICES = [
+const DISCIPLINES = [
   {
-    Icon: MobileIcon,
     title: 'Mobile Apps',
     description: 'Android and iOS development.',
   },
   {
-    Icon: GameIcon,
-    title: 'Game development',
+    title: 'Game Development',
     description: 'PC and Mobile using Godot and Unity.',
   },
   {
-    Icon: DesignIcon,
-    title: 'Web and UI Design',
+    title: 'Web & UI Design',
     description: 'Responsive and accessible web designs using React.',
   },
   {
-    Icon: BackendIcon,
     title: 'Backend Development',
-    description: 'Scalable backend services using Node.js and python.',
+    description: 'Scalable backend services using Node.js and Python.',
   },
 ];
 
@@ -36,30 +30,27 @@ export function About({ isActive }: AboutProps) {
 
       <section className="about-text">
         <p>
-          Fullstack and game developer focused on clean architecture and high-end experiences.
-          Currently enjoying the fascinating journey to product leadership and management.
+          Fullstack and game developer focused on clean architecture and high-end
+          experiences. Building toward product leadership — where engineering judgment
+          meets user clarity.
         </p>
         <p>
-          If you're reading this, let's partner up! Don't hesitate to reach out with any inquiry
-          on my official professional channels.
+          Open to full-time roles at teams where engineers shape the product.
+          Reach out via LinkedIn or email.
         </p>
       </section>
 
-      <section className="service">
-        <h3 className="h3 service-title">What i'm doing</h3>
-        <ul className="service-list">
-          {SERVICES.map(({ Icon, title, description }) => (
-            <li key={title} className="service-item">
-              <div className="service-icon-box">
-                <Icon size={40} />
-              </div>
-              <div className="service-content-box">
-                <h4 className="h4 service-item-title">{title}</h4>
-                <p className="service-item-text">{description}</p>
-              </div>
+      <section className="about-disciplines">
+        <p className="disciplines-label">Disciplines</p>
+        <ol className="discipline-list">
+          {DISCIPLINES.map(({ title, description }, i) => (
+            <li key={title} className="discipline-item">
+              <span className="discipline-number">0{i + 1}</span>
+              <span className="discipline-title">{title}</span>
+              <span className="discipline-desc">{description}</span>
             </li>
           ))}
-        </ul>
+        </ol>
       </section>
     </article>
   );

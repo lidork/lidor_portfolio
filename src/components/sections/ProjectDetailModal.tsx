@@ -63,9 +63,18 @@ export function ProjectDetailModal({ project, onClose }: ProjectDetailModalProps
           </h3>
 
           <div className="project-detail-copy">
-            {project.fullDescription.map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
+            <div className="project-detail-section">
+              <h4 className="project-detail-section-label">Challenge</h4>
+              <p>{project.challenge}</p>
+            </div>
+            <div className="project-detail-section">
+              <h4 className="project-detail-section-label">Approach</h4>
+              <p>{project.approach}</p>
+            </div>
+            <div className="project-detail-section">
+              <h4 className="project-detail-section-label">Outcome</h4>
+              <p>{project.outcome}</p>
+            </div>
           </div>
 
           <ul className="project-detail-stack" aria-label="Project tech stack">
