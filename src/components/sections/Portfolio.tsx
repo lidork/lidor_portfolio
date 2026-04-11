@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { trackEvent } from '../../utils/analytics';
 import { EyeIcon, ChevronDownIcon } from '../icons';
 import { PROJECT_ITEMS, type ProjectCategory, type ProjectItem } from '../../config/projects';
 import { ProjectDetailModal } from './ProjectDetailModal';
@@ -26,6 +27,7 @@ export function Portfolio({ isActive }: PortfolioProps) {
   const handleProjectOpen = (project: ProjectItem, trigger: HTMLButtonElement) => {
     lastTriggerRef.current = trigger;
     setSelectedProject(project);
+    trackEvent(`/project/${project.id}`, project.title);
   };
 
   const handleProjectClose = () => {

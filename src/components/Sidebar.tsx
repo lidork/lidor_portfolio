@@ -1,6 +1,7 @@
 import { MailIcon, LocationIcon, LinkedInIcon, GithubIcon } from './icons';
 import { ASSET_PATHS } from '../config/assets';
 import { EXTERNAL_LINKS } from '../config/links';
+import { trackEvent } from '../utils/analytics';
 
 export function Sidebar() {
   return (
@@ -34,12 +35,12 @@ export function Sidebar() {
         <div className="separator" />
         <ul className="social-list">
           <li className="social-item">
-            <a href={EXTERNAL_LINKS.LINKEDIN} target="_blank" rel="noopener noreferrer" className="social-link">
+            <a href={EXTERNAL_LINKS.LINKEDIN} target="_blank" rel="noopener noreferrer" className="social-link" onClick={() => trackEvent('/link/linkedin')}>
               <LinkedInIcon size={15} />
             </a>
           </li>
           <li className="social-item">
-            <a href={EXTERNAL_LINKS.GITHUB} target="_blank" rel="noopener noreferrer" className="social-link">
+            <a href={EXTERNAL_LINKS.GITHUB} target="_blank" rel="noopener noreferrer" className="social-link" onClick={() => trackEvent('/link/github')}>
               <GithubIcon size={15} />
             </a>
           </li>

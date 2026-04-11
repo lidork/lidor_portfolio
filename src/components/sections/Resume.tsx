@@ -2,6 +2,7 @@ import { DownloadIcon } from '../icons';
 import { EXTERNAL_LINKS } from '../../config/links';
 import { RESUME_DATA } from '../../config/resume';
 import { SkillsSection } from './SkillsSection';
+import { trackEvent } from '../../utils/analytics';
 
 interface ResumeProps {
   isActive: boolean;
@@ -78,6 +79,7 @@ export function Resume({ isActive }: ResumeProps) {
           target="_blank"
           rel="noopener noreferrer"
           className="resume-cv-link"
+          onClick={() => trackEvent('/cv/download', 'Download CV')}
         >
           <DownloadIcon size={11} />
           <span>Download CV</span>
