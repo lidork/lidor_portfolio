@@ -92,7 +92,7 @@ export function Portfolio({ isActive }: PortfolioProps) {
               >
                 <figure className="project-img">
                   <div className="project-item-icon-box"><EyeIcon /></div>
-                  <img src={project.gridImage} alt={project.title} loading="lazy" />
+                  <img src={project.gridImage} alt={project.title} loading="lazy" style={{ objectFit: project.imageFit ?? 'cover' }} />
                 </figure>
                 <div className="project-content">
                   <p className="project-category">{project.categories.join(' · ')}</p>

@@ -16,6 +16,7 @@ export interface ProjectItem {
   githubUrl: string;
   demoUrl?: string;
   techStack: string[];
+  imageFit?: 'cover' | 'contain';
 }
 
 export const PROJECT_ITEMS: ProjectItem[] = [
@@ -35,6 +36,7 @@ export const PROJECT_ITEMS: ProjectItem[] = [
     heroImage: ASSET_PATHS.PAIN_PROJECT_HERO,
     githubUrl: EXTERNAL_LINKS.PAIN_PROJECT,
     techStack: ['Android', 'Java', 'Firebase', 'TensorFlow Lite', 'AAChart'],
+    imageFit: 'contain',
   },
   {
     id: 'suika-dungeon',
@@ -87,6 +89,7 @@ export const PROJECT_ITEMS: ProjectItem[] = [
     heroImage: ASSET_PATHS.ENHANCED_BUDDY,
     githubUrl: EXTERNAL_LINKS.ENHANCED_BUDDY,
     techStack: ['Javascript', 'node.js', 'MCP Server', 'Claude Code'],
+    imageFit: 'contain',
 
   },
   /*{
