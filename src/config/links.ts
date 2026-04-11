@@ -8,4 +8,5 @@ export const EXTERNAL_LINKS = {
   SUIKA_DEMO: 'https://walidor.itch.io/suika-dungeon',
   PAIN_PROJECT: 'https://github.com/lidork/Pain_Project',
   CRYPTO_CLICKER: 'https://github.com/lidork/CryptoClicker',
+  ENHANCED_BUDDY: 'https://github.com/lidork/enhanced-buddy',
 } as const;

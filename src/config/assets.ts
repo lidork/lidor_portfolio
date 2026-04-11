@@ -8,4 +8,6 @@ export const ASSET_PATHS = {
   PAIN_PROJECT_HERO: `${base}assets/images/pain_project_hero.png`,
   CRYPTO_CLICKER: `${base}assets/images/crypto_clicker.png`,
   CRYPTO_CLICKER_HERO: `${base}assets/images/crypto_clicker_hero.png`,
+  ENHANCED_BUDDY: `${base}assets/images/enhanced_buddy.png`,
+  ENHANCED_BUDDY_HERO: `${base}assets/images/enhanced_buddy.png`,
 };

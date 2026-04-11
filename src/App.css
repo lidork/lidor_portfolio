@@ -520,7 +520,7 @@ main {
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   overflow-y: auto;
   overscroll-behavior: contain;
   z-index: 20;
@@ -936,7 +936,13 @@ body.no-scroll {
 }
 
 .project-modal-close-btn {
-  z-index: 3;
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 30;
+  background: var(--eerie-black-1);
+  border: 1px solid var(--jet);
+  opacity: 1;
 }
 
 .project-detail-hero {
@@ -1549,6 +1555,7 @@ textarea.form-input::-webkit-resizer {
   .project-detail-modal {
     grid-template-columns: minmax(280px, 44%) minmax(0, 1fr);
     max-height: calc(100vh - 48px);
+    margin: 24px auto;
   }
 
   .project-detail-hero {
@@ -1558,6 +1565,20 @@ textarea.form-input::-webkit-resizer {
 
   .project-detail-content {
     overflow-y: auto;
+  }
+
+  .project-modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--onyx);
+    border: none;
+    opacity: 0.7;
+  }
+
+  .project-modal-close-btn:hover,
+  .project-modal-close-btn:focus {
+    opacity: 1;
   }
   .modal-avatar-box img {
     width: 80px;
