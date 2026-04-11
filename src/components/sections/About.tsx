@@ -4,21 +4,22 @@ interface AboutProps {
 
 const DISCIPLINES = [
   {
-    title: 'Mobile Apps',
-    description: 'Android and iOS development.',
+    title: 'Backend Development',
+    description: 'Scalable backend services using Node.js and Python.',
   },
   {
     title: 'Game Development',
     description: 'PC and Mobile using Godot and Unity.',
   },
   {
-    title: 'Web & UI Design',
-    description: 'Responsive and accessible web designs using React.',
+    title: 'Mobile Apps',
+    description: 'Android and iOS development.',
   },
   {
-    title: 'Backend Development',
-    description: 'Scalable backend services using Node.js and Python.',
+    title: 'Fullstack Development',
+    description: 'Building scalable web applications with modern technologies.',
   },
+
 ];
 
 export function About({ isActive }: AboutProps) {
@@ -27,10 +28,9 @@ export function About({ isActive }: AboutProps) {
       <header>
         <h2 className="h2 article-title">About me</h2>
       </header>
-
       <section className="about-text">
         <p>
-          Fullstack and game developer focused on clean architecture and high-end
+          Fullstack, Backend and game developer focused on clean architecture and high-end
           experiences. Building toward product leadership — where engineering judgment
           meets user clarity.
         </p>

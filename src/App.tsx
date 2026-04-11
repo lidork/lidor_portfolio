@@ -7,13 +7,12 @@ import { Portfolio } from './components/sections/Portfolio';
 
 export default function App() {
   const [activePage, setActivePage] = useState<'about' | 'resume' | 'portfolio'>('about');
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
     <>
       <a href="#main-content" className="skip-link">Skip to main content</a>
       <main id="main-content">
-        <Sidebar isActive={isSidebarOpen} onToggle={() => setIsSidebarOpen(prev => !prev)} />
+        <Sidebar />
         <div className="main-content">
           <NavigationTabs activePage={activePage} onPageChange={setActivePage} />
           <About isActive={activePage === 'about'} />
@@ -25,8 +24,8 @@ export default function App() {
         <p className="a11y-footer-statement">
           <a href="https://www.isoc.org.il/freedom-of-internet/accessibility/rules-and-regulations-accessibility-internet" target="_blank" rel="noreferrer">
             IS 5568
-          </a>{' '}
-          (WCAG 2.0 AA){' '}
+          </a>
+          (WCAG 2.0 AA)
           </p>
       </footer>
     </>

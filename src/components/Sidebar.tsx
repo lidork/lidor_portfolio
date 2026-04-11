@@ -1,15 +1,10 @@
-import { ChevronDownIcon, MailIcon, LocationIcon, LinkedInIcon, GithubIcon } from './icons';
+import { MailIcon, LocationIcon, LinkedInIcon, GithubIcon } from './icons';
 import { ASSET_PATHS } from '../config/assets';
 import { EXTERNAL_LINKS } from '../config/links';
 
-interface SidebarProps {
-  isActive: boolean;
-  onToggle: () => void;
-}
-
-export function Sidebar({ isActive, onToggle }: SidebarProps) {
+export function Sidebar() {
   return (
-    <aside className={['sidebar', isActive && 'active'].filter(Boolean).join(' ')} data-sidebar="">
+    <aside className="sidebar" data-sidebar="">
       <div className="sidebar-info">
         <figure className="avatar-box">
           <img src={ASSET_PATHS.AVATAR} alt="Lidor Kalfon" width={80} />
@@ -18,10 +13,6 @@ export function Sidebar({ isActive, onToggle }: SidebarProps) {
           <h1 className="name" title="Lidor Kalfon">Lidor Kalfon</h1>
           <p className="title">Software Engineer</p>
         </div>
-        <button className="info_more-btn" data-sidebar-btn="" onClick={onToggle}>
-          <span>Show Contacts</span>
-          <ChevronDownIcon />
-        </button>
       </div>
 
       <div className="sidebar-info_more">
