@@ -38,24 +38,27 @@ export default function App() {
     <>
       <a href="#main-content" className="skip-link">Skip to main content</a>
       <main id="main-content">
-        <Sidebar />
+        <Sidebar activePage={lastActivePage.current} onPageChange={handleNavigate} />
         <div className="main-content" ref={contentRef}>
+          {/* Mobile/tablet nav — hidden on desktop via CSS */}
           <NavigationTabs
             activePage={lastActivePage.current}
             onPageChange={handleNavigate}
           />
-          <About
-            isActive={activePage === 'about'}
-            isExiting={exitingPage === 'about'}
-          />
-          <Resume
-            isActive={activePage === 'resume'}
-            isExiting={exitingPage === 'resume'}
-          />
-          <Portfolio
-            isActive={activePage === 'portfolio'}
-            isExiting={exitingPage === 'portfolio'}
-          />
+          <div className="articles-wrap">
+            <About
+              isActive={activePage === 'about'}
+              isExiting={exitingPage === 'about'}
+            />
+            <Resume
+              isActive={activePage === 'resume'}
+              isExiting={exitingPage === 'resume'}
+            />
+            <Portfolio
+              isActive={activePage === 'portfolio'}
+              isExiting={exitingPage === 'portfolio'}
+            />
+          </div>
         </div>
       </main>
       <footer className="a11y-footer" aria-label="Accessibility statement">

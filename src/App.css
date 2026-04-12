@@ -165,6 +165,14 @@ article {
 .main-content {
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.articles-wrap {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
 }
 /* Articles: hidden by default, absolutely stacked */
 article {
@@ -1693,50 +1701,94 @@ textarea.form-input::-webkit-resizer {
     width: max-content;
     margin: auto;
   }
-  .navbar {
-    position: absolute;
-    inset: 0 0 auto auto;
-    width: max-content;
-    border-radius: 0;
-    border-top: none;
-    border-bottom: 1px solid var(--jet);
+  /* Hide the mobile/tablet navbar inside .main-content */
+  .main-content > .navbar {
+    display: none;
+  }
+
+  /* Show the sidebar nav section */
+  .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: auto;
+  }
+
+  /* Vertical nav inside sidebar */
+  .sidebar-nav .navbar {
+    position: static;
+    width: 100%;
     background: transparent;
+    border: none;
     padding: 0;
     box-shadow: none;
+    border-radius: 0;
   }
-  .navbar-list {
-    gap: 0;
-    padding: 0;
+  .sidebar-nav .navbar-list {
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px 0 0;
   }
-  .navbar-link {
-    font-size: var(--fs-6);
-    font-weight: var(--fw-400);
-    color: var(--light-gray-70);
-    padding: 16px 18px;
+  .sidebar-nav .navbar-item {
+    width: 100%;
+  }
+  .sidebar-nav .navbar-link {
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 9px 10px;
+    border-radius: 6px;
+    font-size: var(--fs-7);
+    font-weight: var(--fw-500);
+    color: var(--light-gray-70);
+    text-align: left;
+    background: transparent;
+    transition: background 0.15s ease, color 0.15s ease;
   }
-  .navbar-link::after {
+  .sidebar-nav .navbar-link::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: oklch(0.30 0.01 220);
+    flex-shrink: 0;
+    transition: background 0.15s ease;
+    /* override the mobile ::before pseudo — reset position */
+    position: static;
+    transform: none;
+  }
+  .sidebar-nav .navbar-link::after {
     content: "";
     position: absolute;
-    bottom: 0;
-    left: 18px;
-    right: 18px;
-    height: 1px;
-    background: var(--orange-yellow-crayola);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 0%;
+    background: oklch(65% 0.18 220);
+    border-radius: 0 2px 2px 0;
+    transition: height 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    /* reset scaleX from mobile */
+    bottom: auto;
+    right: auto;
   }
-  .navbar-link:hover,
-  .navbar-link:focus {
+  .sidebar-nav .navbar-link:hover,
+  .sidebar-nav .navbar-link:focus {
+    background: oklch(0.18 0.01 220);
     color: var(--light-gray);
   }
-  .navbar-link.active {
+  .sidebar-nav .navbar-link.active {
+    background: oklch(0.17 0.015 220);
     color: var(--white-2);
-    font-weight: var(--fw-500);
+    font-weight: var(--fw-600);
   }
-  .navbar-link.active::after {
-    transform: scaleX(1);
+  .sidebar-nav .navbar-link.active::before {
+    background: oklch(65% 0.18 220);
+  }
+  .sidebar-nav .navbar-link.active::after {
+    height: 60%;
   }
   .service-list {
     grid-template-columns: 1fr 1fr;
@@ -1757,6 +1809,10 @@ textarea.form-input::-webkit-resizer {
   }
 }
 @media (min-width: 1250px) {
+  .about-contact {
+    display: none;
+  }
+
   body::-webkit-scrollbar {
     width: 20px;
   }
@@ -2035,7 +2091,7 @@ textarea.form-input::-webkit-resizer {
     background: var(--onyx);
     color: var(--white-2);
     font-weight: var(--fw-500);
-    box-shadow: inset 0 -2px 0 var(--orange-yellow-crayola);
+    box-shadow: inset 0 -2px 0 oklch(65% 0.18 220);
   }
 
   /* --- Show Contacts button: reveal text label --- */
@@ -2867,6 +2923,105 @@ textarea.form-input::-webkit-resizer {
   color: oklch(0.72 0.15 220);
 }
 
+
+/* ── Mobile compact header (< 1250px) ──────────────────────────── */
+@media (max-width: 1249px) {
+  /* Sidebar becomes a slim identity strip — rounded card */
+  .sidebar {
+    background: var(--eerie-black-1);
+    border: 1px solid var(--jet);
+    border-radius: 14px;
+    padding: 9px 14px;
+    margin-bottom: 6px;
+    box-shadow: none;
+  }
+
+  .sidebar-info {
+    gap: 8px;
+    align-items: center;
+  }
+
+  .sidebar .avatar-box {
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .sidebar .avatar-box img {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .sidebar .info-content .name {
+    font-size: 11px;
+    margin-bottom: 2px;
+    letter-spacing: 0;
+  }
+
+  .sidebar .info-content .title {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+
+  /* Hide separator and contacts/social block — contact moves to About tab */
+  .sidebar .separator,
+  .sidebar-info_more {
+    display: none;
+  }
+
+  /* Remove the info_more toggle button if it ever reappears */
+  .info_more-btn {
+    display: none;
+  }
+
+  /* Hide the desktop vertical nav in sidebar */
+  .sidebar-nav {
+    display: none;
+  }
+
+  /* Contact section at bottom of About tab — mobile/tablet only */
+  .about-contact {
+    margin-top: 8px;
+  }
+
+  .about-contact-list .contact-item {
+    gap: 10px;
+    align-items: center;
+    min-width: 0;
+  }
+
+  .about-contact-list .contact-link {
+    font-family: 'Epilogue', sans-serif;
+    font-size: var(--fs-8);
+    font-weight: 400;
+    color: oklch(0.76 0.012 220);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+    transition: color 0.2s ease;
+  }
+
+  .about-contact-list .contact-link:hover {
+    color: oklch(0.90 0.008 220);
+  }
+
+  .about-social-list {
+    padding-left: 0;
+    gap: 16px;
+  }
+
+  .about-social-list .social-link {
+    color: oklch(0.52 0.01 220);
+    transition: color 0.2s ease;
+  }
+
+  .about-social-list .social-link:hover {
+    color: oklch(0.72 0.15 220);
+  }
+}
 
 /* ── Accessibility ───────────────────────────────────────────────── */
 
