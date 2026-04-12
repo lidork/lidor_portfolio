@@ -44,18 +44,20 @@ export default function App() {
             activePage={lastActivePage.current}
             onPageChange={handleNavigate}
           />
-          <About
-            isActive={activePage === 'about'}
-            isExiting={exitingPage === 'about'}
-          />
-          <Resume
-            isActive={activePage === 'resume'}
-            isExiting={exitingPage === 'resume'}
-          />
-          <Portfolio
-            isActive={activePage === 'portfolio'}
-            isExiting={exitingPage === 'portfolio'}
-          />
+          <div className="articles-wrap">
+            <About
+              isActive={activePage === 'about'}
+              isExiting={exitingPage === 'about'}
+            />
+            <Resume
+              isActive={activePage === 'resume'}
+              isExiting={exitingPage === 'resume'}
+            />
+            <Portfolio
+              isActive={activePage === 'portfolio'}
+              isExiting={exitingPage === 'portfolio'}
+            />
+          </div>
         </div>
       </main>
       <footer className="a11y-footer" aria-label="Accessibility statement">

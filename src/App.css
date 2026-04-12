@@ -165,6 +165,14 @@ article {
 .main-content {
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.articles-wrap {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
 }
 /* Articles: hidden by default, absolutely stacked */
 article {
@@ -1693,15 +1701,17 @@ textarea.form-input::-webkit-resizer {
     margin: auto;
   }
   .navbar {
-    position: absolute;
-    inset: 0 0 auto auto;
-    width: max-content;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
     border-radius: 0;
     border-top: none;
     border-bottom: 1px solid var(--jet);
     background: transparent;
     padding: 0;
     box-shadow: none;
+    flex-shrink: 0;
   }
   .navbar-list {
     gap: 0;
@@ -1718,13 +1728,29 @@ textarea.form-input::-webkit-resizer {
     content: "";
     position: absolute;
     bottom: 0;
-    left: 18px;
-    right: 18px;
-    height: 1px;
-    background: var(--orange-yellow-crayola);
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: oklch(65% 0.18 220);
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .navbar-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: oklch(65% 0.18 220 / 0.28);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 1px 1px 0 0;
+  }
+  .navbar-link:not(.active):hover::before {
+    transform: scaleX(1);
   }
   .navbar-link:hover,
   .navbar-link:focus {
