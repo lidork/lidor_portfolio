@@ -286,7 +286,7 @@ article.exiting {
   z-index: -1;
 }
 main {
-  margin: 15px 12px 75px;
+  margin: 15px 12px;
   min-width: 259px;
 }
 .sidebar {
@@ -405,13 +405,12 @@ main {
   color: var(--light-gray);
 }
 .navbar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
+  position: sticky;
+  top: 0;
   width: 100%;
   background: var(--eerie-black-1);
-  border-top: 1px solid var(--jet);
-  z-index: 5;
+  border-bottom: 1px solid var(--jet);
+  z-index: 10;
 }
 .navbar-list {
   display: flex;
@@ -1380,7 +1379,7 @@ textarea.form-input::-webkit-resizer {
   }
   main {
     margin-top: 60px;
-    margin-bottom: 100px;
+    margin-bottom: 60px;
   }
   .sidebar {
     margin-bottom: 30px;
