@@ -24,6 +24,8 @@ dist-ssr
 *.sw?
 
 #document files
+_archive
 docs
 .superpowers
 .impeccable.md
+CLAUDE.md
