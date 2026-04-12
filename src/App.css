@@ -164,6 +164,7 @@ article {
 }
 .main-content {
   position: relative;
+  overflow: hidden;
 }
 /* Articles: hidden by default, absolutely stacked */
 article {
