@@ -2,8 +2,15 @@ import { MailIcon, LocationIcon, LinkedInIcon, GithubIcon } from './icons';
 import { ASSET_PATHS } from '../config/assets';
 import { EXTERNAL_LINKS } from '../config/links';
 import { trackEvent } from '../utils/analytics';
+import { NavigationTabs } from './NavigationTabs';
+import type { Page } from './NavigationTabs';
 
-export function Sidebar() {
+interface SidebarProps {
+  activePage: Page;
+  onPageChange: (page: Page) => void;
+}
+
+export function Sidebar({ activePage, onPageChange }: SidebarProps) {
   return (
     <aside className="sidebar" data-sidebar="">
       <div className="sidebar-info">
@@ -45,6 +52,12 @@ export function Sidebar() {
             </a>
           </li>
         </ul>
+      </div>
+
+      {/* Desktop-only vertical nav — hidden on mobile/tablet via CSS */}
+      <div className="sidebar-nav">
+        <div className="separator" />
+        <NavigationTabs activePage={activePage} onPageChange={onPageChange} />
       </div>
     </aside>
   );

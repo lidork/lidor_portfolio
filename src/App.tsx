@@ -38,8 +38,9 @@ export default function App() {
     <>
       <a href="#main-content" className="skip-link">Skip to main content</a>
       <main id="main-content">
-        <Sidebar />
+        <Sidebar activePage={lastActivePage.current} onPageChange={handleNavigate} />
         <div className="main-content" ref={contentRef}>
+          {/* Mobile/tablet nav — hidden on desktop via CSS */}
           <NavigationTabs
             activePage={lastActivePage.current}
             onPageChange={handleNavigate}

@@ -294,7 +294,7 @@ article.exiting {
   z-index: -1;
 }
 main {
-  margin: 15px 12px;
+  margin: 15px 12px 75px;
   min-width: 259px;
 }
 .sidebar {
@@ -413,12 +413,13 @@ main {
   color: var(--light-gray);
 }
 .navbar {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
   width: 100%;
   background: var(--eerie-black-1);
-  border-bottom: 1px solid var(--jet);
-  z-index: 10;
+  border-top: 1px solid var(--jet);
+  z-index: 5;
 }
 .navbar-list {
   display: flex;
@@ -1387,7 +1388,7 @@ textarea.form-input::-webkit-resizer {
   }
   main {
     margin-top: 60px;
-    margin-bottom: 60px;
+    margin-bottom: 100px;
   }
   .sidebar {
     margin-bottom: 30px;
@@ -1700,68 +1701,94 @@ textarea.form-input::-webkit-resizer {
     width: max-content;
     margin: auto;
   }
-  .navbar {
-    position: relative;
-    width: 100%;
+  /* Hide the mobile/tablet navbar inside .main-content */
+  .main-content > .navbar {
+    display: none;
+  }
+
+  /* Show the sidebar nav section */
+  .sidebar-nav {
     display: flex;
-    justify-content: flex-end;
-    border-radius: 0;
-    border-top: none;
-    border-bottom: 1px solid var(--jet);
+    flex-direction: column;
+    gap: 8px;
+    margin-top: auto;
+  }
+
+  /* Vertical nav inside sidebar */
+  .sidebar-nav .navbar {
+    position: static;
+    width: 100%;
     background: transparent;
+    border: none;
     padding: 0;
     box-shadow: none;
-    flex-shrink: 0;
+    border-radius: 0;
   }
-  .navbar-list {
-    gap: 0;
-    padding: 0;
+  .sidebar-nav .navbar-list {
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px 0 0;
   }
-  .navbar-link {
-    font-size: var(--fs-6);
-    font-weight: var(--fw-400);
-    color: var(--light-gray-70);
-    padding: 16px 18px;
+  .sidebar-nav .navbar-item {
+    width: 100%;
+  }
+  .sidebar-nav .navbar-link {
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 9px 10px;
+    border-radius: 6px;
+    font-size: var(--fs-7);
+    font-weight: var(--fw-500);
+    color: var(--light-gray-70);
+    text-align: left;
+    background: transparent;
+    transition: background 0.15s ease, color 0.15s ease;
   }
-  .navbar-link::after {
+  .sidebar-nav .navbar-link::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: oklch(0.30 0.01 220);
+    flex-shrink: 0;
+    transition: background 0.15s ease;
+    /* override the mobile ::before pseudo — reset position */
+    position: static;
+    transform: none;
+  }
+  .sidebar-nav .navbar-link::after {
     content: "";
     position: absolute;
-    bottom: 0;
     left: 0;
-    right: 0;
-    height: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 0%;
     background: oklch(65% 0.18 220);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 0 2px 2px 0;
+    transition: height 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    /* reset scaleX from mobile */
+    bottom: auto;
+    right: auto;
   }
-  .navbar-link::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: oklch(65% 0.18 220 / 0.28);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-    border-radius: 1px 1px 0 0;
-  }
-  .navbar-link:not(.active):hover::before {
-    transform: scaleX(1);
-  }
-  .navbar-link:hover,
-  .navbar-link:focus {
+  .sidebar-nav .navbar-link:hover,
+  .sidebar-nav .navbar-link:focus {
+    background: oklch(0.18 0.01 220);
     color: var(--light-gray);
   }
-  .navbar-link.active {
+  .sidebar-nav .navbar-link.active {
+    background: oklch(0.17 0.015 220);
     color: var(--white-2);
-    font-weight: var(--fw-500);
+    font-weight: var(--fw-600);
   }
-  .navbar-link.active::after {
-    transform: scaleX(1);
+  .sidebar-nav .navbar-link.active::before {
+    background: oklch(65% 0.18 220);
+  }
+  .sidebar-nav .navbar-link.active::after {
+    height: 60%;
   }
   .service-list {
     grid-template-columns: 1fr 1fr;
@@ -2064,7 +2091,7 @@ textarea.form-input::-webkit-resizer {
     background: var(--onyx);
     color: var(--white-2);
     font-weight: var(--fw-500);
-    box-shadow: inset 0 -2px 0 var(--orange-yellow-crayola);
+    box-shadow: inset 0 -2px 0 oklch(65% 0.18 220);
   }
 
   /* --- Show Contacts button: reveal text label --- */
@@ -2899,13 +2926,13 @@ textarea.form-input::-webkit-resizer {
 
 /* ── Mobile compact header (< 1250px) ──────────────────────────── */
 @media (max-width: 1249px) {
-  /* Sidebar becomes a slim identity strip instead of a card */
+  /* Sidebar becomes a slim identity strip — rounded card */
   .sidebar {
     background: var(--eerie-black-1);
-    border: none;
-    border-radius: 0;
+    border: 1px solid var(--jet);
+    border-radius: 14px;
     padding: 9px 14px;
-    margin-bottom: 0;
+    margin-bottom: 6px;
     box-shadow: none;
   }
 
@@ -2915,14 +2942,14 @@ textarea.form-input::-webkit-resizer {
   }
 
   .sidebar .avatar-box {
-    border-radius: 7px;
+    border-radius: 50%;
     overflow: hidden;
     flex-shrink: 0;
   }
 
   .sidebar .avatar-box img {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     object-fit: cover;
     display: block;
   }
@@ -2946,6 +2973,11 @@ textarea.form-input::-webkit-resizer {
 
   /* Remove the info_more toggle button if it ever reappears */
   .info_more-btn {
+    display: none;
+  }
+
+  /* Hide the desktop vertical nav in sidebar */
+  .sidebar-nav {
     display: none;
   }
 
