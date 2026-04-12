@@ -36,6 +36,7 @@ export function useTabTransition(initial: Page) {
       setState(s => ({ ...s, exitingPage: null }));
 
       const t2 = setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'instant' });
         setState({ activePage: next, exitingPage: null });
 
         // Hold busy through the enter animation so a click mid-enter
