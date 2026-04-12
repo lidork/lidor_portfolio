@@ -46,14 +46,15 @@
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
   --bittersweet-shimmer: hsl(0, 43%, 51%);
   --ff-poppins: "Poppins", sans-serif;
-  --fs-1: 24px;
-  --fs-2: 18px;
-  --fs-3: 17px;
-  --fs-4: 16px;
-  --fs-5: 15px;
-  --fs-6: 14px;
-  --fs-7: 13px;
-  --fs-8: 11px;
+  --fs-1: 34px;  /* .h2 (section headings like "About Me", "Resume") */
+  --fs-2: 28px;  /* .h3, .project-detail-title, .modal-close-btn, .social-link icons */
+  --fs-3: 26px;  /* .info-content .name (sidebar name) */
+  --fs-4: 25px;  /* .h4, .icon-box icons, .form-btn ion-icon */
+  --fs-5: 24px;  /* .project-title (project card heading) */
+  --fs-6: 23px;  /* body text: about, descriptions, timeline, form inputs, modal text, blog */
+  --fs-7: 22px;  /* .h5, labels, .contact-info links/time/address, skill percentages, action buttons */
+  --fs-8: 20px;  /* tiny: .info-content .title badge, .contact-title, navbar mobile, project category, stack tags */
+  --fs-9: 10px;  /* micro editorial: role/item index numbers, dates, expand labels, skill badge counts */
   --fw-300: 300;
   --fw-400: 400;
   --fw-500: 500;
@@ -140,7 +141,7 @@ article {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
+  font-size: var(--fs-4);
   color: var(--orange-yellow-crayola);
   box-shadow: var(--shadow-1);
   z-index: 1;
@@ -285,7 +286,7 @@ main {
   top: -15px;
   right: -15px;
   border-radius: 0 15px;
-  font-size: 13px;
+  font-size: var(--fs-7);
   color: var(--orange-yellow-crayola);
   background: var(--border-gradient-onyx);
   padding: 10px;
@@ -355,7 +356,7 @@ main {
 }
 .social-item .social-link {
   color: var(--light-gray-70);
-  font-size: 18px;
+  font-size: var(--fs-2);
 }
 .social-item .social-link:hover {
   color: var(--light-gray);
@@ -575,7 +576,7 @@ body.no-scroll {
   justify-content: center;
   align-items: center;
   color: var(--white-2);
-  font-size: 18px;
+  font-size: var(--fs-2);
   opacity: 0.7;
 }
 .modal-close-btn:hover,
@@ -1268,7 +1269,7 @@ textarea.form-input::-webkit-resizer {
   transition: var(--transition-1);
 }
 .form-btn ion-icon {
-  font-size: 16px;
+  font-size: var(--fs-4);
 }
 .form-btn:hover {
   background: var(--bg-gradient-yellow-1);
@@ -1301,13 +1302,13 @@ textarea.form-input::-webkit-resizer {
 }
 @media (min-width: 580px) {
   :root {
-    --fs-1: 32px;
-    --fs-2: 24px;
-    --fs-3: 26px;
-    --fs-4: 18px;
-    --fs-6: 15px;
-    --fs-7: 15px;
-    --fs-8: 12px;
+    --fs-1: 34px;  /* .h2 section headings */
+    --fs-2: 26px;  /* .h3, project modal title, social icons */
+    --fs-3: 28px;  /* sidebar name */
+    --fs-4: 19px;  /* .h4, icon-box icons */
+    --fs-6: 16px;  /* body text */
+    --fs-7: 16px;  /* labels, action buttons */
+    --fs-8: 13px;  /* tiny badges, navbar */
   }
   .sidebar,
   article {
@@ -1327,7 +1328,7 @@ textarea.form-input::-webkit-resizer {
     width: 48px;
     height: 48px;
     border-radius: 12px;
-    font-size: 18px;
+    font-size: var(--fs-2);
   }
   main {
     margin-top: 60px;
@@ -1514,7 +1515,7 @@ textarea.form-input::-webkit-resizer {
     padding: 16px 20px;
   }
   .form-btn ion-icon {
-    font-size: 18px;
+    font-size: var(--fs-2);
   }
 }
 @media (min-width: 768px) {
@@ -1883,7 +1884,7 @@ textarea.form-input::-webkit-resizer {
 }
 .toast__title {
   font-weight: 500;
-  font-size: 14px;
+  font-size: var(--fs-6);
   color: #fff;
   flex-grow: 1;
   word-break: break-word;
@@ -1939,7 +1940,7 @@ textarea.form-input::-webkit-resizer {
     margin-top: -1px;
   }
   .toast__title {
-    font-size: 13px;
+    font-size: var(--fs-7);
   }
   .toast__close svg {
     width: 14px;
@@ -1998,7 +1999,7 @@ textarea.form-input::-webkit-resizer {
   }
   .info_more-btn span {
     display: block;
-    font-size: 12px;
+    font-size: var(--fs-8);
     white-space: nowrap;
   }
 
@@ -2025,11 +2026,10 @@ textarea.form-input::-webkit-resizer {
 
   /* --- Body text: slightly more readable --- */
   .about-text {
-    font-size: 15px;
+    font-size: var(--fs-6);
   }
 }
 
-/* ── Resume Redesign ──────────────────────────────────────── */
 
 .resume-header {
   display: flex;
@@ -2174,7 +2174,7 @@ textarea.form-input::-webkit-resizer {
   border-radius: 50%;
   width: 19px;
   height: 19px;
-  font-size: 11px;
+  font-size: var(--fs-8);
   font-weight: 700;
   display: inline-flex;
   align-items: center;
@@ -2213,7 +2213,7 @@ textarea.form-input::-webkit-resizer {
 
 .resume-skill-expand-label {
   width: 100%;
-  font-size: 10px;
+  font-size: var(--fs-9);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -2341,6 +2341,29 @@ textarea.form-input::-webkit-resizer {
   }
 }
 
+/* ── Portfolio — Article title (matches About & Resume standard) ──── */
+
+.portfolio .article-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(1.4rem, 3.5vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin-bottom: 20px;
+}
+
+.portfolio .article-title::after {
+  background: oklch(0.72 0.15 220);
+  width: 24px;
+  height: 2px;
+  border-radius: 1px;
+}
+
+@media (min-width: 580px) {
+  .portfolio .article-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+  }
+}
+
 /* ── About — Editorial Redesign ─────────────────────────────────── */
 
 .about {
@@ -2387,7 +2410,7 @@ textarea.form-input::-webkit-resizer {
 
 .disciplines-label {
   display: block;
-  font-size: 10px;
+  font-size: var(--fs-9);
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -2416,7 +2439,7 @@ textarea.form-input::-webkit-resizer {
 
 .discipline-number {
   display: block;
-  font-size: 10px;
+  font-size: var(--fs-9);
   font-weight: 400;
   color: oklch(0.72 0.15 220);
   font-variant-numeric: tabular-nums;
@@ -2429,7 +2452,7 @@ textarea.form-input::-webkit-resizer {
 .discipline-title {
   display: block;
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 14px;
+  font-size: var(--fs-6);
   font-weight: 600;
   color: oklch(0.95 0.006 220);
   letter-spacing: -0.01em;
@@ -2439,7 +2462,7 @@ textarea.form-input::-webkit-resizer {
 
 .discipline-desc {
   display: block;
-  font-size: 12px;
+  font-size: var(--fs-8);
   color: oklch(0.56 0.012 220);
   line-height: 1.55;
   grid-column: 2;
@@ -2453,11 +2476,11 @@ textarea.form-input::-webkit-resizer {
   }
 
   .discipline-title {
-    font-size: 15px;
+    font-size: var(--fs-5);
   }
 
   .discipline-desc {
-    font-size: 13px;
+    font-size: var(--fs-7);
   }
 
   .about-disciplines {
@@ -2467,7 +2490,7 @@ textarea.form-input::-webkit-resizer {
 
 @media (max-width: 579px) {
   .about .about-text {
-    font-size: 14px;
+    font-size: var(--fs-7);
   }
 }
 
@@ -2489,7 +2512,7 @@ textarea.form-input::-webkit-resizer {
 
 .resume-head .article-title {
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: clamp(1.4rem, 3.5vw, 1.75rem);
+  font-size: var(--fs-1);
   font-weight: 700;
   letter-spacing: -0.025em;
   margin-bottom: 0;
@@ -2506,7 +2529,7 @@ textarea.form-input::-webkit-resizer {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-size: 11px;
+  font-size: var(--fs-8);
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -2523,7 +2546,7 @@ textarea.form-input::-webkit-resizer {
 
 .resume-label {
   display: block;
-  font-size: 10px;
+  font-size: var(--fs-9);
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -2561,7 +2584,7 @@ textarea.form-input::-webkit-resizer {
 
 .resume-role-index {
   display: block;
-  font-size: 10px;
+  font-size: var(--fs-9);
   font-weight: 400;
   color: oklch(0.72 0.15 220);
   font-variant-numeric: tabular-nums;
@@ -2584,14 +2607,14 @@ textarea.form-input::-webkit-resizer {
 
 .resume-role-title {
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 15px;
+  font-size: var(--fs-5);
   font-weight: 600;
   color: oklch(0.95 0.006 220);
   letter-spacing: -0.01em;
 }
 
 .resume-role-date {
-  font-size: 10px;
+  font-size: var(--fs-9);
   font-weight: 400;
   color: oklch(0.72 0.15 220);
   font-variant-numeric: tabular-nums;
@@ -2601,7 +2624,7 @@ textarea.form-input::-webkit-resizer {
 }
 
 .resume-role-company {
-  font-size: 12px;
+  font-size: var(--fs-8);
   font-weight: 400;
   color: oklch(0.58 0.012 220);
 }
@@ -2612,7 +2635,7 @@ textarea.form-input::-webkit-resizer {
   align-items: baseline;
   gap: 0 3px;
   margin: 6px 0 10px;
-  font-size: 11px;
+  font-size: var(--fs-8);
   font-weight: 400;
   color: oklch(0.72 0.15 220);
   line-height: 1.6;
@@ -2633,7 +2656,7 @@ textarea.form-input::-webkit-resizer {
 }
 
 .resume-role-bullets li {
-  font-size: 12px;
+  font-size: var(--fs-8);
   color: oklch(0.62 0.01 220);
   line-height: 1.7;
   padding-left: 12px;
@@ -2655,7 +2678,7 @@ textarea.form-input::-webkit-resizer {
   color: oklch(0.76 0.012 220);
   border: 1px solid oklch(0.28 0.006 220);
   border-radius: 4px;
-  font-size: 11px;
+  font-size: var(--fs-8);
   font-weight: 500;
   letter-spacing: 0.03em;
   padding: 5px 12px;
@@ -2671,7 +2694,7 @@ textarea.form-input::-webkit-resizer {
 .resume .resume-skill-badge {
   background: oklch(0.72 0.15 220 / 0.15);
   color: oklch(0.72 0.15 220);
-  font-size: 10px;
+  font-size: var(--fs-9);
   width: 17px;
   height: 17px;
 }
@@ -2697,24 +2720,24 @@ textarea.form-input::-webkit-resizer {
   color: oklch(0.76 0.012 220);
   border: 1px solid oklch(0.26 0.006 220);
   border-radius: 4px;
-  font-size: 11px;
+  font-size: var(--fs-8);
 }
 
 @media (min-width: 580px) {
   .resume-role-title {
-    font-size: 16px;
+    font-size: var(--fs-4);
   }
 
   .resume-role-metrics {
-    font-size: 12px;
+    font-size: var(--fs-8);
   }
 
   .resume-role-bullets li {
-    font-size: 13px;
+    font-size: var(--fs-7);
   }
 
   .resume-role-company {
-    font-size: 13px;
+    font-size: var(--fs-7);
   }
 }
 
@@ -2766,7 +2789,7 @@ textarea.form-input::-webkit-resizer {
 
 .sidebar .contact-item .contact-link {
   font-family: 'Epilogue', sans-serif;
-  font-size: 12px;
+  font-size: var(--fs-8);
   font-weight: 400;
   color: oklch(0.76 0.012 220);
   white-space: nowrap;
@@ -2843,7 +2866,7 @@ textarea.form-input::-webkit-resizer {
 }
 
 .a11y-footer-statement {
-  font-size: 11px;
+  font-size: var(--fs-8);
   color: oklch(0.45 0.006 220);
   line-height: 1.6;
 }
