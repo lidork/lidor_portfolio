@@ -26,8 +26,14 @@ const DISCIPLINES = [
 export function About({ isActive, isExiting }: AboutProps) {
   const cls = ['about', isActive ? 'active' : '', isExiting ? 'exiting' : '']
     .filter(Boolean).join(' ');
+  const hidden = !isActive && !isExiting;
   return (
-    <article className={cls} data-page="about">
+    <article
+      className={cls}
+      data-page="about"
+      aria-hidden={hidden || undefined}
+      inert={hidden || undefined}
+    >
       <header>
         <h2 className="h2 article-title">About me</h2>
       </header>

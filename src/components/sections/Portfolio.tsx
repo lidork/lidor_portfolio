@@ -42,8 +42,14 @@ export function Portfolio({ isActive, isExiting }: PortfolioProps) {
       ? PROJECT_ITEMS
       : PROJECT_ITEMS.filter(p => p.categories.includes(selectedCategory));
 
+  const hidden = !isActive && !isExiting;
   return (
-    <article className={cls} data-page="portfolio">
+    <article
+      className={cls}
+      data-page="portfolio"
+      aria-hidden={hidden || undefined}
+      inert={hidden || undefined}
+    >
       <header>
         <h2 className="h2 article-title">Portfolio</h2>
       </header>

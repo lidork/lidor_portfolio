@@ -12,8 +12,14 @@ interface ResumeProps {
 export function Resume({ isActive, isExiting }: ResumeProps) {
   const cls = ['resume', isActive ? 'active' : '', isExiting ? 'exiting' : '']
     .filter(Boolean).join(' ');
+  const hidden = !isActive && !isExiting;
   return (
-    <article className={cls} data-page="resume">
+    <article
+      className={cls}
+      data-page="resume"
+      aria-hidden={hidden || undefined}
+      inert={hidden || undefined}
+    >
 
       <div className="resume-head">
         <h2 className="h2 article-title">Resume</h2>

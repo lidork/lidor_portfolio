@@ -8,7 +8,7 @@ import { useTabTransition } from './hooks/useTabTransition';
 import type { Page } from './components/NavigationTabs';
 
 export default function App() {
-  const { activePage, exitingPage, isBusy, navigate } = useTabTransition('about');
+  const { activePage, exitingPage, navigate } = useTabTransition('about');
 
   // Update ref synchronously in render (no useEffect delay).
   // lastActivePage stays on the last known page during the 100ms blank
@@ -21,12 +21,11 @@ export default function App() {
   const contentRef = useRef<HTMLDivElement>(null);
 
   const handleNavigate = useCallback((next: Page) => {
-    // Only lock height if a transition will actually start (not mid-transition)
-    if (!isBusy && contentRef.current) {
+    if (contentRef.current) {
       contentRef.current.style.minHeight = contentRef.current.offsetHeight + 'px';
     }
     navigate(next);
-  }, [navigate, isBusy]);
+  }, [navigate]);
 
   // Clear locked height once the new page is active
   useEffect(() => {

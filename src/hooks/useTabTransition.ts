@@ -34,6 +34,7 @@ export function useTabTransition(initial: Page) {
       const t2 = setTimeout(() => {
         setState({ activePage: next, exitingPage: null });
         busy.current = false;
+        timers.current = []; // prune after transition completes
       }, BLANK_PAUSE);
 
       timers.current.push(t2);
@@ -45,7 +46,6 @@ export function useTabTransition(initial: Page) {
   return {
     activePage: state.activePage,
     exitingPage: state.exitingPage,
-    isBusy: busy.current,
     navigate,
   };
 }
