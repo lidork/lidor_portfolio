@@ -2867,6 +2867,59 @@ textarea.form-input::-webkit-resizer {
 }
 
 
+/* ── Mobile compact header (< 1250px) ──────────────────────────── */
+@media (max-width: 1249px) {
+  /* Sidebar becomes a slim identity strip instead of a card */
+  .sidebar {
+    background: var(--eerie-black-1);
+    border: none;
+    border-radius: 0;
+    padding: 9px 14px;
+    margin-bottom: 0;
+    box-shadow: none;
+  }
+
+  .sidebar-info {
+    gap: 8px;
+    align-items: center;
+  }
+
+  .sidebar .avatar-box {
+    border-radius: 7px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .sidebar .avatar-box img {
+    width: 28px;
+    height: 28px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .sidebar .info-content .name {
+    font-size: 11px;
+    margin-bottom: 2px;
+    letter-spacing: 0;
+  }
+
+  .sidebar .info-content .title {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+
+  /* Hide separator and contacts/social block — contact moves to About tab */
+  .sidebar .separator,
+  .sidebar-info_more {
+    display: none;
+  }
+
+  /* Remove the info_more toggle button if it ever reappears */
+  .info_more-btn {
+    display: none;
+  }
+}
+
 /* ── Accessibility ───────────────────────────────────────────────── */
 
 /* Skip link */
