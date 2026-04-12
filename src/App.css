@@ -1756,6 +1756,10 @@ textarea.form-input::-webkit-resizer {
   }
 }
 @media (min-width: 1250px) {
+  .about-contact {
+    display: none;
+  }
+
   body::-webkit-scrollbar {
     width: 20px;
   }
@@ -2917,6 +2921,47 @@ textarea.form-input::-webkit-resizer {
   /* Remove the info_more toggle button if it ever reappears */
   .info_more-btn {
     display: none;
+  }
+
+  /* Contact section at bottom of About tab — mobile/tablet only */
+  .about-contact {
+    margin-top: 8px;
+  }
+
+  .about-contact-list .contact-item {
+    gap: 10px;
+    align-items: center;
+    min-width: 0;
+  }
+
+  .about-contact-list .contact-link {
+    font-family: 'Epilogue', sans-serif;
+    font-size: var(--fs-8);
+    font-weight: 400;
+    color: oklch(0.76 0.012 220);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+    transition: color 0.2s ease;
+  }
+
+  .about-contact-list .contact-link:hover {
+    color: oklch(0.90 0.008 220);
+  }
+
+  .about-social-list {
+    padding-left: 0;
+    gap: 16px;
+  }
+
+  .about-social-list .social-link {
+    color: oklch(0.52 0.01 220);
+    transition: color 0.2s ease;
+  }
+
+  .about-social-list .social-link:hover {
+    color: oklch(0.72 0.15 220);
   }
 }
 

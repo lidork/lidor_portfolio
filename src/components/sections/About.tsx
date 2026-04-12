@@ -1,3 +1,7 @@
+import { MailIcon, LocationIcon, LinkedInIcon, GithubIcon } from '../icons';
+import { EXTERNAL_LINKS } from '../../config/links';
+import { trackEvent } from '../../utils/analytics';
+
 interface AboutProps {
   isActive: boolean;
   isExiting?: boolean;
@@ -60,6 +64,55 @@ export function About({ isActive, isExiting }: AboutProps) {
             </li>
           ))}
         </ol>
+      </section>
+
+      <section className="about-contact">
+        <p className="disciplines-label">Contact</p>
+        <div className="separator" />
+        <ul className="contacts-list about-contact-list">
+          <li className="contact-item">
+            <MailIcon size={13} className="contact-icon" />
+            <a href={`mailto:${EXTERNAL_LINKS.EMAIL}`} className="contact-link">
+              {EXTERNAL_LINKS.EMAIL}
+            </a>
+          </li>
+          <li className="contact-item">
+            <LocationIcon size={13} className="contact-icon" />
+            <a
+              href={EXTERNAL_LINKS.MAP_LOCATION}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-link"
+            >
+              Israel
+            </a>
+          </li>
+        </ul>
+        <div className="separator" />
+        <ul className="social-list about-social-list">
+          <li className="social-item">
+            <a
+              href={EXTERNAL_LINKS.LINKEDIN}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link"
+              onClick={() => trackEvent('/link/linkedin')}
+            >
+              <LinkedInIcon size={15} />
+            </a>
+          </li>
+          <li className="social-item">
+            <a
+              href={EXTERNAL_LINKS.GITHUB}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link"
+              onClick={() => trackEvent('/link/github')}
+            >
+              <GithubIcon size={15} />
+            </a>
+          </li>
+        </ul>
       </section>
     </article>
   );
