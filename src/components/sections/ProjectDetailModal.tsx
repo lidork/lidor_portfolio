@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { EyeIcon, GithubIcon } from '../icons';
 import type { ProjectItem } from '../../config/projects';
 
@@ -32,7 +33,7 @@ export function ProjectDetailModal({ project, onClose }: ProjectDetailModalProps
     return null;
   }
 
-  return (
+  return createPortal(
     <div className="modal-container active" aria-hidden={false}>
       <div className="overlay active" onClick={onClose} />
 
@@ -108,6 +109,7 @@ export function ProjectDetailModal({ project, onClose }: ProjectDetailModalProps
           </div>
         </div>
       </section>
-    </div>
+    </div>,
+    document.body
   );
 }

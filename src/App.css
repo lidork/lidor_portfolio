@@ -586,8 +586,10 @@ main {
   pointer-events: all;
 }
 
-body.no-scroll {
+body.no-scroll,
+html:has(body.no-scroll) {
   overflow: hidden;
+  overscroll-behavior: none;
 }
 
 .testimonials-modal {
@@ -958,7 +960,8 @@ body.no-scroll {
   border-radius: 16px;
   box-shadow: var(--shadow-5);
   z-index: 2;
-  overflow: hidden;
+  overflow-y: auto;
+  max-height: calc(100dvh - 28px);
   display: grid;
   gap: 0;
   animation: modalIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -1473,6 +1476,7 @@ textarea.form-input::-webkit-resizer {
   }
   .modal-container {
     padding: 20px;
+    align-items: center;
   }
   .testimonials-modal {
     display: flex;
@@ -1586,6 +1590,7 @@ textarea.form-input::-webkit-resizer {
   .project-detail-modal {
     grid-template-columns: minmax(280px, 44%) minmax(0, 1fr);
     max-height: calc(100vh - 48px);
+    overflow: hidden;
     margin: 24px auto;
   }
 
