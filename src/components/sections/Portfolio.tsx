@@ -6,13 +6,16 @@ import { ProjectDetailModal } from './ProjectDetailModal';
 
 interface PortfolioProps {
   isActive: boolean;
+  isExiting?: boolean;
 }
 
 type Category = 'All' | ProjectCategory;
 
 const CATEGORY_OPTIONS: Category[] = ['All', 'Mobile Apps', 'Game development', 'Full Stack'];
 
-export function Portfolio({ isActive }: PortfolioProps) {
+export function Portfolio({ isActive, isExiting }: PortfolioProps) {
+  const cls = ['portfolio', isActive ? 'active' : '', isExiting ? 'exiting' : '']
+    .filter(Boolean).join(' ');
   const [selectedCategory, setSelectedCategory] = useState<Category>('All');
   const [isSelectOpen, setIsSelectOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
@@ -40,7 +43,7 @@ export function Portfolio({ isActive }: PortfolioProps) {
       : PROJECT_ITEMS.filter(p => p.categories.includes(selectedCategory));
 
   return (
-    <article className={`portfolio${isActive ? ' active' : ''}`} data-page="portfolio">
+    <article className={cls} data-page="portfolio">
       <header>
         <h2 className="h2 article-title">Portfolio</h2>
       </header>

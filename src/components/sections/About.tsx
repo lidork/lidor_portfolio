@@ -1,5 +1,6 @@
 interface AboutProps {
   isActive: boolean;
+  isExiting?: boolean;
 }
 
 const DISCIPLINES = [
@@ -22,9 +23,11 @@ const DISCIPLINES = [
 
 ];
 
-export function About({ isActive }: AboutProps) {
+export function About({ isActive, isExiting }: AboutProps) {
+  const cls = ['about', isActive ? 'active' : '', isExiting ? 'exiting' : '']
+    .filter(Boolean).join(' ');
   return (
-    <article className={`about${isActive ? ' active' : ''}`} data-page="about">
+    <article className={cls} data-page="about">
       <header>
         <h2 className="h2 article-title">About me</h2>
       </header>

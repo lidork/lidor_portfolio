@@ -6,11 +6,14 @@ import { trackEvent } from '../../utils/analytics';
 
 interface ResumeProps {
   isActive: boolean;
+  isExiting?: boolean;
 }
 
-export function Resume({ isActive }: ResumeProps) {
+export function Resume({ isActive, isExiting }: ResumeProps) {
+  const cls = ['resume', isActive ? 'active' : '', isExiting ? 'exiting' : '']
+    .filter(Boolean).join(' ');
   return (
-    <article className={`resume${isActive ? ' active' : ''}`} data-page="resume">
+    <article className={cls} data-page="resume">
 
       <div className="resume-head">
         <h2 className="h2 article-title">Resume</h2>
