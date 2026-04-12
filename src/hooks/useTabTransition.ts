@@ -1,8 +1,9 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
 import type { Page } from '../components/NavigationTabs';
 
-const EXIT_DURATION = 240; // matches .exiting CSS transition duration
-const BLANK_PAUSE   = 100;
+const EXIT_DURATION  = 240; // matches .exiting CSS transition duration
+const BLANK_PAUSE    = 100;
+const ENTER_DURATION = 400; // matches tab-enter @keyframes duration in App.css
 
 interface TabTransitionState {
   activePage: Page | null;
@@ -22,8 +23,11 @@ export function useTabTransition(initial: Page) {
   }, []);
 
   const navigate = useCallback((next: Page) => {
+    // Guard BEFORE creating any timeouts — blocked clicks must not schedule timers
+    if (busy.current) return;
+
     setState(s => {
-      if (next === s.activePage || busy.current) return s;
+      if (next === s.activePage) return s;
       busy.current = true;
       return { activePage: null, exitingPage: s.activePage };
     });
@@ -33,8 +37,15 @@ export function useTabTransition(initial: Page) {
 
       const t2 = setTimeout(() => {
         setState({ activePage: next, exitingPage: null });
-        busy.current = false;
-        timers.current = []; // prune after transition completes
+
+        // Hold busy through the enter animation so a click mid-enter
+        // doesn't start an exit from a partially-visible state.
+        const t3 = setTimeout(() => {
+          busy.current = false;
+          timers.current = [];
+        }, ENTER_DURATION);
+
+        timers.current.push(t3);
       }, BLANK_PAUSE);
 
       timers.current.push(t2);
