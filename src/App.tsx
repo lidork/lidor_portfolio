@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useCallback } from 'react';
 import { Sidebar } from './components/Sidebar';
 import { NavigationTabs } from './components/NavigationTabs';
 import { About } from './components/sections/About';
@@ -8,24 +8,27 @@ import { useTabTransition } from './hooks/useTabTransition';
 import type { Page } from './components/NavigationTabs';
 
 export default function App() {
-  const { activePage, exitingPage, navigate } = useTabTransition('about');
+  const { activePage, exitingPage, isBusy, navigate } = useTabTransition('about');
 
-  // Keep the last known active page so the nav highlight doesn't blank
-  // during the 100ms window when activePage is null.
+  // Update ref synchronously in render (no useEffect delay).
+  // lastActivePage stays on the last known page during the 100ms blank
+  // when activePage is null, keeping the nav highlight stable.
   const lastActivePage = useRef<Page>('about');
-  useEffect(() => {
-    if (activePage !== null) lastActivePage.current = activePage;
-  }, [activePage]);
+  if (activePage !== null) lastActivePage.current = activePage;
 
   // Lock .main-content height at transition start to prevent collapse
   // when no article is in normal flow during the blank pause.
   const contentRef = useRef<HTMLDivElement>(null);
-  const handleNavigate = (next: Page) => {
-    if (contentRef.current) {
+
+  const handleNavigate = useCallback((next: Page) => {
+    // Only lock height if a transition will actually start (not mid-transition)
+    if (!isBusy && contentRef.current) {
       contentRef.current.style.minHeight = contentRef.current.offsetHeight + 'px';
     }
     navigate(next);
-  };
+  }, [navigate, isBusy]);
+
+  // Clear locked height once the new page is active
   useEffect(() => {
     if (activePage !== null && contentRef.current) {
       contentRef.current.style.minHeight = '';

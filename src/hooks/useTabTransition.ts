@@ -14,8 +14,8 @@ export function useTabTransition(initial: Page) {
     activePage: initial,
     exitingPage: null,
   });
-  const busy     = useRef(false);
-  const timers   = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const busy   = useRef(false);
+  const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   useEffect(() => {
     return () => { timers.current.forEach(clearTimeout); };
@@ -45,6 +45,7 @@ export function useTabTransition(initial: Page) {
   return {
     activePage: state.activePage,
     exitingPage: state.exitingPage,
+    isBusy: busy.current,
     navigate,
   };
 }
