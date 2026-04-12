@@ -46,14 +46,15 @@
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
   --bittersweet-shimmer: hsl(0, 43%, 51%);
   --ff-poppins: "Poppins", sans-serif;
-  --fs-1: 34px;  /* .h2 (section headings like "About Me", "Resume") */
-  --fs-2: 28px;  /* .h3, .project-detail-title, .modal-close-btn, .social-link icons */
-  --fs-3: 26px;  /* .info-content .name (sidebar name) */
-  --fs-4: 25px;  /* .h4, .icon-box icons, .form-btn ion-icon */
-  --fs-5: 24px;  /* .project-title (project card heading) */
-  --fs-6: 23px;  /* body text: about, descriptions, timeline, form inputs, modal text, blog */
-  --fs-7: 22px;  /* .h5, labels, .contact-info links/time/address, skill percentages, action buttons */
-  --fs-8: 20px;  /* tiny: .info-content .title badge, .contact-title, navbar mobile, project category, stack tags */
+  /* Mobile-first base sizes — scale up at 580px+ */
+  --fs-1: 22px;  /* .h2 (section headings like "About Me", "Resume") */
+  --fs-2: 18px;  /* .h3, .project-detail-title, .modal-close-btn, .social-link icons */
+  --fs-3: 17px;  /* .info-content .name (sidebar name) */
+  --fs-4: 16px;  /* .h4, .icon-box icons, .form-btn ion-icon */
+  --fs-5: 15px;  /* .project-title (project card heading) */
+  --fs-6: 14px;  /* body text: about, descriptions, timeline, form inputs, modal text, blog */
+  --fs-7: 13px;  /* .h5, labels, .contact-info links/time/address, skill percentages, action buttons */
+  --fs-8: 11px;  /* tiny: .info-content .title badge, .contact-title, navbar mobile, project category, stack tags */
   --fs-9: 10px;  /* micro editorial: role/item index numbers, dates, expand labels, skill badge counts */
   --fw-300: 300;
   --fw-400: 400;
@@ -1306,9 +1307,11 @@ textarea.form-input::-webkit-resizer {
     --fs-2: 26px;  /* .h3, project modal title, social icons */
     --fs-3: 28px;  /* sidebar name */
     --fs-4: 19px;  /* .h4, icon-box icons */
+    --fs-5: 17px;  /* project card titles */
     --fs-6: 16px;  /* body text */
-    --fs-7: 16px;  /* labels, action buttons */
+    --fs-7: 15px;  /* labels, action buttons */
     --fs-8: 13px;  /* tiny badges, navbar */
+    --fs-9: 11px;  /* micro editorial labels */
   }
   .sidebar,
   article {
