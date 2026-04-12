@@ -177,15 +177,26 @@ article {
   /* No transition on default state — JS classes control timing */
 }
 
-/* Active article sits in normal flow */
+/* Active article sits in normal flow.
+   No transform here — transform creates a containing block that breaks
+   position:fixed children (modals). Enter drift is via @keyframes instead. */
 article.active {
   position: relative;
   opacity: 1;
-  transform: translateY(0);
+  transform: none; /* override base rule's translateY(10px); none = no stacking context */
   pointer-events: auto;
-  transition:
-    opacity 320ms cubic-bezier(0.16, 1, 0.3, 1),
-    transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+  animation: tab-enter 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes tab-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Exiting article overlaps while animating out */
