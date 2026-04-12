@@ -162,19 +162,48 @@ article {
   display: inline-block;
   vertical-align: middle;
 }
+.main-content {
+  position: relative;
+}
+/* Articles: hidden by default, absolutely stacked */
 article {
-  display: none;
-}
-article.active {
   display: block;
-  animation: fade 0.5s ease backwards;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  /* No transition on default state — JS classes control timing */
 }
-@keyframes fade {
-  0% {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
+
+/* Active article sits in normal flow */
+article.active {
+  position: relative;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition:
+    opacity 320ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Exiting article overlaps while animating out */
+article.exiting {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition:
+    opacity 240ms cubic-bezier(0.4, 0, 1, 1),
+    transform 240ms cubic-bezier(0.4, 0, 1, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  article,
+  article.active,
+  article.exiting {
+    transition: none;
   }
 }
 .h2,
