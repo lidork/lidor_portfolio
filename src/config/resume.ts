@@ -1,7 +1,6 @@
 // src/config/resume.ts
 
 export interface ResumeMetric {
-  icon: string;
   label: string;
 }
 
@@ -11,7 +10,6 @@ export interface ResumeRole {
   start: string;        // "YYYY-MM-DD"
   end: string;          // "YYYY-MM-DD" or "present"
   display: string;      // e.g. "2018 – 2020"
-  accent: string;       // CSS color string
   bullets: string[];
   metrics: ResumeMetric[];
 }
@@ -22,7 +20,6 @@ export interface ResumeEducation {
   start: string;
   end: string;
   display: string;
-  accent: string;
   statValue?: string;    // e.g. "CS"
   statLabel?: string;    // e.g. "Degree WIP"
 }
@@ -70,16 +67,17 @@ export const RESUME_DATA: ResumeConfig = {
       start: '2022-01-01',
       end: '2023-01-01',
       display: '2022 – 2023',
-      accent: '#4ade80',
       bullets: [
         'Conducted comprehensive testing of hardware components to ensure functionality and performance standards were met.',
         'Developed and executed test plans, identifying and documenting issues with detailed reports.',
+        'Utilized Python and Bash scripts to automate testing processes, increasing efficiency and coverage.',
         'Collaborated with engineers to troubleshoot and resolve hardware and software integration issues.',
+        'Maintained detailed documentation of test procedures, results, and best practices for future reference.',
       ],
       metrics: [
-        { icon: '🐛', label: 'Documented 30+ Hardware/Software Issues' },
-        { icon: '📋', label: 'Full test plan coverage' },
-        { icon: '⚙️', label: 'Manual and Automated Testing' },
+        { label: '30+ Issues Documented' },
+        { label: 'Improved lead time by 60%' },
+        { label: 'Manual, Automated Testing' },
       ],
     },
     {
@@ -88,16 +86,17 @@ export const RESUME_DATA: ResumeConfig = {
       start: '2018-01-01',
       end: '2020-01-01',
       display: '2018 – 2020',
-      accent: '#60a5fa',
       bullets: [
         'Managed and maintained complex network systems, ensuring seamless communication and operational efficiency.',
         'Provided HelpDesk and IT support for more than 100 users.',
         'Developed automation scripts in Python and Bash to streamline issue resolution.',
+        'Instructed and mentored new technicians on network protocols, troubleshooting techniques, and security best practices.',
+        'Developed and maintained documentation for network configurations, procedures, and troubleshooting guides.',
       ],
       metrics: [
-        { icon: '👥', label: '100+ users supported' },
-        { icon: '⚡', label: '50% reduction in resolution time' },
-        { icon: '🤖', label: 'Python + Bash automation' },
+        { label: '100+ users supported' },
+        { label: '50% reduction in resolution time' },
+        { label: 'Python + Bash automation' },
       ],
     },
     {
@@ -106,16 +105,20 @@ export const RESUME_DATA: ResumeConfig = {
       start: '2014-01-01',
       end: '2019-01-01',
       display: '2014 – 2019',
-      accent: '#f59e0b',
       bullets: [
         'Authored in-depth reviews and articles on various PC games, demonstrating a deep understanding of game mechanics and design.',
         'Conducted interviews with game developers and industry experts.',
+        'Led a team of writers, providing editorial guidance and ensuring high-quality content.',
+        'Managed social media accounts on several platforms, promoting content and engaging with the gaming community.',
+        'Managed the publication schedule, coordinating with writers and editors to meet deadlines.',
+        'Edited and proofread articles, ensuring accuracy and consistency.',
         'Established business and press relations with game publishers and developers.',
+        'Organized and hosted gaming events, fostering community engagement and promoting the publication.',
       ],
       metrics: [
-        { icon: '✍️', label: '2000+ articles published' },
-        { icon: '🎙️', label: 'Audited 1000+ articles' },
-        { icon: '🤝', label: 'Developer and Publisher relations' },
+        { label: '2000+ articles published' },
+        { label: 'Audited 1000+ articles' },
+        { label: 'Developer and Publisher relations' },
       ],
     },
   ],
@@ -126,7 +129,6 @@ export const RESUME_DATA: ResumeConfig = {
       start: '2024-01-01',
       end: '2026-01-01',
       display: '2024 – 2026',
-      accent: '#a78bfa',
       statValue: 'CS',
       statLabel: 'Degree',
     },

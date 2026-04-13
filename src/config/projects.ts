@@ -13,7 +13,7 @@ export interface ProjectItem {
   outcome: string;
   gridImage: string;
   heroImage: string;
-  githubUrl: string;
+  githubUrl?: string;
   demoUrl?: string;
   techStack: string[];
   imageFit?: 'cover' | 'contain';
@@ -92,10 +92,10 @@ export const PROJECT_ITEMS: ProjectItem[] = [
     imageFit: 'contain',
 
   },
-  /*{
+  {
     id: 'personal-portfolio',
-    title: 'Personal Portfolio',
-    categories: ['Web & UI Design', 'Full Stack'],
+    title: 'This Personal Portfolio',
+    categories: ['Full Stack'],
     shortDescription:
       'A personal portfolio website showcasing projects, experience, and contact info with a focus on clean design and accessibility.',
     challenge:
@@ -104,9 +104,8 @@ export const PROJECT_ITEMS: ProjectItem[] = [
       'Built with React and TypeScript, the site features a custom layout with smooth transitions between sections. The design emphasizes readability and visual hierarchy, using a minimalist color palette and clear typography. Accessibility was a key focus, with semantic HTML, ARIA attributes, and keyboard navigation support implemented throughout.',
     outcome:
       'A polished personal portfolio that effectively showcases projects and experience. The site is fully responsive and meets accessibility standards, providing a seamless user experience across devices.',
-    gridImage: ASSET_PATHS.PORTFOLIO,
+    gridImage: ASSET_PATHS.PORTFOLIO_EMBED,
     heroImage: ASSET_PATHS.PORTFOLIO_HERO,
-    githubUrl: EXTERNAL_LINKS.PORTFOLIO,
     techStack: ['React', 'TypeScript', 'CSS', 'Accessibility'],
-  },*/
+  }
 ];
