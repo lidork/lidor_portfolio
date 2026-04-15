@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lidork.github.io/lidor_portfolio/sitemap.xml
