@@ -54,7 +54,12 @@ export function ProjectDetailModal({ project, onClose }: ProjectDetailModalProps
         </button>
 
         <div className="project-detail-hero">
-          <img src={project.heroImage} alt={project.title} loading="lazy" style={{ objectFit: project.imageFit ?? 'cover' }} />
+          <picture>
+            {project.heroImagePortrait && (
+              <source media="(orientation: portrait)" srcSet={project.heroImagePortrait} />
+            )}
+            <img src={project.heroImage} alt={project.title} loading="lazy" style={{ objectFit: project.imageFit ?? 'cover' }} />
+          </picture>
         </div>
 
         <div className="project-detail-content">

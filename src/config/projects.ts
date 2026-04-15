@@ -13,6 +13,7 @@ export interface ProjectItem {
   outcome: string;
   gridImage: string;
   heroImage: string;
+  heroImagePortrait?: string;
   githubUrl?: string;
   demoUrl?: string;
   techStack: string[];
@@ -106,6 +107,8 @@ export const PROJECT_ITEMS: ProjectItem[] = [
       'A polished personal portfolio that effectively showcases projects and experience. The site is fully responsive and meets accessibility standards, providing a seamless user experience across devices.',
     gridImage: ASSET_PATHS.PORTFOLIO_EMBED,
     heroImage: ASSET_PATHS.PORTFOLIO_HERO,
+    heroImagePortrait: ASSET_PATHS.PORTFOLIO_EMBED,
     techStack: ['React', 'TypeScript', 'CSS', 'Accessibility'],
+    imageFit: 'cover',
   }
 ];
