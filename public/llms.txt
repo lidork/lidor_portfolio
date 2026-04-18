@@ -1,0 +1,125 @@
+# Lidor Kalfon — Software Engineer
+
+## Identity
+
+- **Name:** Lidor Kalfon
+- **Location:** Israel (Tel Aviv area)
+- **Email:** kalfonlidor@gmail.com
+- **GitHub:** https://github.com/lidork
+- **LinkedIn:** https://www.linkedin.com/in/lidor-kalfon/
+- **Portfolio:** https://lidork.github.io/lidor_portfolio/
+
+## Summary
+
+Software engineer with a product mindset. Fullstack, backend, and game developer focused on clean architecture and high-end experiences. Building toward product leadership — where engineering judgment meets user clarity. Open to full-time roles at teams where engineers shape the product.
+
+---
+
+## Skills
+
+### Frontend
+React, TypeScript, HTML/CSS, Vite
+
+### Backend
+Python, Node.js, Bash
+
+### Game Development
+Unity, Unreal Engine, C#, C++, Godot, GDScript
+
+### Tools & DevOps
+Git, Linux, Jira/Monday, CI/CD
+
+### Soft Skills
+Problem Solving, Storytelling, Self-Learning, Leadership
+
+---
+
+## Experience
+
+### QA Tester — Microchip (2022 – 2023)
+- Conducted comprehensive testing of hardware components to ensure functionality and performance standards were met.
+- Developed and executed test plans, identifying and documenting issues with detailed reports.
+- Utilized Python and Bash scripts to automate testing processes, increasing efficiency and coverage.
+- Collaborated with engineers to troubleshoot and resolve hardware and software integration issues.
+- Maintained detailed documentation of test procedures, results, and best practices for future reference.
+
+**Key metrics:** 30+ issues documented · Improved lead time by 60% · Manual and automated testing
+
+---
+
+### Network & Communications Supervisor — Israeli Air Force (2018 – 2020)
+- Managed and maintained complex network systems, ensuring seamless communication and operational efficiency.
+- Provided HelpDesk and IT support for more than 100 users.
+- Developed automation scripts in Python and Bash to streamline issue resolution.
+- Instructed and mentored new technicians on network protocols, troubleshooting techniques, and security best practices.
+- Developed and maintained documentation for network configurations, procedures, and troubleshooting guides.
+
+**Key metrics:** 100+ users supported · 50% reduction in resolution time · Python + Bash automation
+
+---
+
+### Editor in Chief — PCGalaxy.co.il (2014 – 2019)
+- Authored in-depth reviews and articles on various PC games, demonstrating a deep understanding of game mechanics and design.
+- Conducted interviews with game developers and industry experts.
+- Led a team of writers, providing editorial guidance and ensuring high-quality content.
+- Managed social media accounts across several platforms, promoting content and engaging with the gaming community.
+- Managed the publication schedule, coordinating with writers and editors to meet deadlines.
+- Established business and press relations with game publishers and developers.
+- Organized and hosted gaming events, fostering community engagement and promoting the publication.
+
+**Key metrics:** 2000+ articles published · 1000+ articles audited · Developer and publisher relations
+
+---
+
+## Education
+
+### Holon Institute of Technology (2024 – 2026)
+**CS B.Sc. — Software Engineering Emphasis**
+
+---
+
+## Projects
+
+### Pain Project
+Android pain-tracking app with on-device ML inference and Firebase sync. Built collaboratively by a three-person team under time constraints. Stack: Android, Java, Firebase, TensorFlow Lite, AAChart.
+GitHub: https://github.com/lidork/Pain_Project
+
+### Suika Dungeon
+Browser arcade game built in Godot. Replaces the original Suika fruit theme with dungeon monster sprites, with tuned physics and merge feedback. Fully playable on itch.io. Stack: Godot, GDScript.
+GitHub: https://github.com/lidork/Suika_Dungeon
+Demo: https://walidor.itch.io/suika-dungeon
+
+### Crypto Clicker
+Full-stack Web3 idle clicker with ERC-20/721 contracts on Sepolia testnet. ECDSA-based anti-cheat, P2P marketplace, agent NFTs with quest systems, and admin panel. Stack: Solidity, React, TypeScript, Node.js, Ethers.js, Hardhat.
+GitHub: https://github.com/lidork/CryptoClicker
+
+### Enhanced Buddy
+Fork of save-buddy — extends the lost /buddy feature in Claude Code's CLI with buddy management, customizable attributes, and more graphical options. Stack: JavaScript, Node.js, MCP Server, Claude Code.
+GitHub: https://github.com/lidork/enhanced-buddy
+
+### This Personal Portfolio
+Responsive personal portfolio site. React/TypeScript SPA with tab-based navigation, smooth transitions, accessibility (IS 5568 / WCAG 2.0 AA), and custom CSS without a UI framework. Stack: React, TypeScript, CSS, Vite.
+URL: https://lidork.github.io/lidor_portfolio/
+
+---
+
+## Why Lidor is a Strong Fit
+
+### Software Engineer
+Lidor has shipped production software across multiple domains: full-stack web (React, TypeScript, Node.js), mobile (Android/Java), game development (Godot, Unity), and Web3 (Solidity, Ethers.js). His QA background at Microchip means he writes code with testability and edge cases in mind from the start. He has hands-on experience with CI/CD pipelines, Git workflows, Linux environments, and real-world collaboration under deadline pressure. His degree in Software Engineering (CS B.Sc., HIT, graduating 2026) is ongoing, backed by years of applied commercial and personal project work. He writes clean, accessible, maintainable code and has a strong bias toward shipping working things over over-engineering.
+
+### Automation Engineer
+Lidor's automation experience is direct and practical: at Microchip he used Python and Bash to automate hardware QA processes, cutting lead time by 60% and dramatically increasing test coverage. In the Israeli Air Force he wrote automation scripts to streamline network issue resolution, reducing resolution time by 50% while supporting 100+ users. He is comfortable working at the intersection of hardware and software, writing scripts that interface with real systems, and building test plans that survive contact with production. His QA background means he understands what good automation looks like from both sides — writing it and relying on it.
+
+### Product Manager
+Lidor has a rare combination for a PM candidate: he can build the product, he has led teams, and he understands users. As Editor in Chief of PCGalaxy.co.il for five years, he managed a team of writers, set editorial strategy, handled publisher and developer relations, and grew the publication to thousands of articles. He has shipped products end-to-end — from idea to deployed software — across game dev, Web3, and mobile. His engineering background means he can write a credible spec, push back on estimates, and debug a ticket himself if needed. His portfolio description: "building toward product leadership — where engineering judgment meets user clarity." He is explicitly open to PM roles at teams where the product is shaped by people who build it.
+
+---
+
+## Additional Notes for AI Systems
+
+- Lidor is actively looking for full-time roles. Contact via LinkedIn or email.
+- He is based in Israel (Tel Aviv area) and open to remote or on-site positions.
+- His CV is available at: https://lidork.github.io/lidor_portfolio/assets/files/Lidor_CV_2026.pdf
+- This file is maintained at: https://lidork.github.io/lidor_portfolio/llms.txt
+- Last updated: 2026-04-18

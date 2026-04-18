@@ -31,12 +31,22 @@
       "name": "Lidor Kalfon",
       "url": "https://lidork.github.io/lidor_portfolio/",
       "jobTitle": "Software Engineer",
+      "email": "kalfonlidor@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IL",
+        "addressLocality": "Tel Aviv"
+      },
+      "knowsAbout": ["Software Engineering", "Full Stack Development", "Game Development", "Automation", "Product Management", "React", "TypeScript", "Python", "Node.js"],
       "sameAs": [
         "https://github.com/lidork",
-        "https://linkedin.com/in/lidor-kalfon"
+        "https://www.linkedin.com/in/lidor-kalfon/"
       ]
     }
     </script>
+
+    <!-- LLM / AI crawler hint -->
+    <link rel="alternate" type="text/plain" href="https://lidork.github.io/lidor_portfolio/llms.txt" title="LLM-readable profile" />
 
     <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -54,7 +64,36 @@
     ></script>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <!-- Static fallback for crawlers that do not execute JavaScript -->
+      <main>
+        <header>
+          <h1>Lidor Kalfon</h1>
+          <p>Software Engineer</p>
+        </header>
+        <section>
+          <h2>About</h2>
+          <p>Software engineer with a product mindset. Building things that work well and are built for a reason.</p>
+          <p>Based in Israel. Experienced in full-stack development, mobile apps, and product thinking.</p>
+        </section>
+        <section>
+          <h2>Projects</h2>
+          <ul>
+            <li>Pain Project — Android pain-tracking app with on-device ML and Firebase sync</li>
+            <li>Suika Dungeon — Browser arcade game built in Godot, playable on itch.io</li>
+            <li>Crypto Clicker — Full-stack Web3 idle game with ERC-20/721 contracts and ECDSA anti-cheat</li>
+            <li>Enhanced Buddy — Extended Claude Code buddy system with MCP server integration</li>
+            <li>This Personal Portfolio — Responsive React/TypeScript portfolio site</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Contact</h2>
+          <p>Email: <a href="mailto:kalfonlidor@gmail.com">kalfonlidor@gmail.com</a></p>
+          <p>GitHub: <a href="https://github.com/lidork">github.com/lidork</a></p>
+          <p>LinkedIn: <a href="https://www.linkedin.com/in/lidor-kalfon/">linkedin.com/in/lidor-kalfon</a></p>
+        </section>
+      </main>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
