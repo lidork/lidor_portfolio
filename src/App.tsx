@@ -8,13 +8,7 @@ import { useTabTransition } from './hooks/useTabTransition';
 import type { Page } from './components/NavigationTabs';
 
 export default function App() {
-  const { activePage, exitingPage, navigate } = useTabTransition('about');
-
-  // Update ref synchronously in render (no useEffect delay).
-  // lastActivePage stays on the last known page during the 100ms blank
-  // when activePage is null, keeping the nav highlight stable.
-  const lastActivePage = useRef<Page>('about');
-  if (activePage !== null) lastActivePage.current = activePage;
+  const { activePage, exitingPage, stablePage, navigate } = useTabTransition('about');
 
   // Lock .main-content height at transition start to prevent collapse
   // when no article is in normal flow during the blank pause.
@@ -38,11 +32,11 @@ export default function App() {
     <>
       <a href="#main-content" className="skip-link">Skip to main content</a>
       <main id="main-content">
-        <Sidebar activePage={lastActivePage.current} onPageChange={handleNavigate} />
+        <Sidebar activePage={stablePage} onPageChange={handleNavigate} />
         <div className="main-content" ref={contentRef}>
           {/* Mobile/tablet nav — hidden on desktop via CSS */}
           <NavigationTabs
-            activePage={lastActivePage.current}
+            activePage={stablePage}
             onPageChange={handleNavigate}
           />
           <div className="articles-wrap">

@@ -21,7 +21,7 @@ export function NavigationTabs({ activePage, onPageChange }: NavigationTabsProps
           <li key={key} className="navbar-item">
             <button
               className={activePage === key ? 'navbar-link active' : 'navbar-link'}
-              onClick={() => { onPageChange(key); trackEvent(`/tab/${key}`, label); }}
+              onClick={() => { onPageChange(key); if (key !== 'about') trackEvent(`/tab/${key}`, label); }}
               data-nav-link=""
             >
               {label}

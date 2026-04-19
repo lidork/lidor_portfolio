@@ -15,8 +15,9 @@ export function useTabTransition(initial: Page) {
     activePage: initial,
     exitingPage: null,
   });
-  const busy   = useRef(false);
-  const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const busy       = useRef(false);
+  const timers     = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const stablePage = useRef<Page>(initial);
 
   useEffect(() => {
     return () => { timers.current.forEach(clearTimeout); };
@@ -37,6 +38,7 @@ export function useTabTransition(initial: Page) {
 
       const t2 = setTimeout(() => {
         window.scrollTo({ top: 0, behavior: 'instant' });
+        stablePage.current = next;
         setState({ activePage: next, exitingPage: null });
 
         // Hold busy through the enter animation so a click mid-enter
@@ -58,6 +60,7 @@ export function useTabTransition(initial: Page) {
   return {
     activePage: state.activePage,
     exitingPage: state.exitingPage,
+    stablePage: stablePage.current,
     navigate,
   };
 }
