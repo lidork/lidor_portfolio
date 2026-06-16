@@ -1,23 +1,41 @@
 import {
+  faAndroid,
+  faApple,
+  faDocker,
   faGitAlt,
   faHtml5,
+  faJava,
+  faJenkins,
   faJira,
+  faJs,
   faLinux,
   faNodeJs,
   faPython,
   faReact,
+  faUbuntu,
   faUnity,
 } from '@fortawesome/free-brands-svg-icons';
 import {
   faBolt,
   faBookOpen,
+  faChartLine,
   faCode,
   faCodeBranch,
   faComments,
+  faCube,
+  faDatabase,
+  faDharmachakra,
+  faFolderTree,
   faGamepad,
+  faKey,
+  faLeaf,
   faLightbulb,
+  faMagnifyingGlass,
+  faPlug,
+  faStethoscope,
   faTerminal,
   faUserTie,
+  faWandMagicSparkles,
 } from '@fortawesome/free-solid-svg-icons';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import type { ResumeSkill } from '../../config/resume';
@@ -44,4 +62,28 @@ export const SKILL_ICON_DEFINITIONS: Record<SkillIconKey, IconDefinition> = {
   storytelling: faComments,
   selfLearning: faBookOpen,
   leadership: faUserTie,
+  // Languages
+  java: faJava,
+  javascript: faJs,
+  sql: faDatabase,
+  terraform: faCube,
+  // Frameworks & libraries
+  reactNative: faReact,
+  socketio: faPlug,
+  d3: faChartLine,
+  jwt: faKey,
+  mongodb: faLeaf,
+  // Tools & platforms
+  docker: faDocker,
+  kubernetes: faDharmachakra,
+  android: faAndroid,
+  ios: faApple,
+  jenkins: faJenkins,
+  // Linux & system administration
+  ubuntu: faUbuntu,
+  logAnalysis: faMagnifyingGlass,
+  fileSystem: faFolderTree,
+  diagnostics: faStethoscope,
+  // AI-assisted development
+  ai: faWandMagicSparkles,
 };
