@@ -2,6 +2,8 @@
 
 Personal portfolio website built with React, TypeScript, and Vite.
 
+Check it out here: https://lidork.github.io/lidor_portfolio/
+
 ## Tech Stack
 
 - **React 19** + **TypeScript**
