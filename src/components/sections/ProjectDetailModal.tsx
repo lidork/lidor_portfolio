@@ -90,15 +90,17 @@ export function ProjectDetailModal({ project, onClose }: ProjectDetailModalProps
           </ul>
 
           <div className="project-detail-actions">
-            <a
-              className="project-detail-action project-detail-action--primary"
-              href={project.githubUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <GithubIcon size={14} />
-              <span>GitHub</span>
-            </a>
+            {project.githubUrl && (
+              <a
+                className="project-detail-action project-detail-action--primary"
+                href={project.githubUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <GithubIcon size={14} />
+                <span>GitHub</span>
+              </a>
+            )}
 
             {project.demoUrl && (
               <a

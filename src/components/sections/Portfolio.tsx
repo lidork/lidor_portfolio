@@ -11,7 +11,7 @@ interface PortfolioProps {
 
 type Category = 'All' | ProjectCategory;
 
-const CATEGORY_OPTIONS: Category[] = ['All', 'Mobile Apps', 'Game development', 'Full Stack'];
+const CATEGORY_OPTIONS: Category[] = ['All', 'Hackathon', 'Mobile Apps', 'Game development', 'Full Stack'];
 
 export function Portfolio({ isActive, isExiting }: PortfolioProps) {
   const cls = ['portfolio', isActive ? 'active' : '', isExiting ? 'exiting' : '']
@@ -103,6 +103,9 @@ export function Portfolio({ isActive, isExiting }: PortfolioProps) {
               >
                 <figure className="project-img">
                   <div className="project-item-icon-box"><EyeIcon /></div>
+                  {project.badge && (
+                    <span className="project-badge">{project.badge}</span>
+                  )}
                   <img src={project.gridImage} alt={project.title} loading="lazy" style={{ objectFit: project.imageFit ?? 'cover' }} />
                 </figure>
                 <div className="project-content">

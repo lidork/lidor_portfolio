@@ -9,4 +9,7 @@ export const EXTERNAL_LINKS = {
   PAIN_PROJECT: 'https://github.com/lidork/Pain_Project',
   CRYPTO_CLICKER: 'https://github.com/lidork/CryptoClicker',
   ENHANCED_BUDDY: 'https://github.com/lidork/enhanced-buddy',
+  LINKEDOUT: 'https://github.com/lidork/LinkedOut',
+  HACKATHON: 'https://academic.hit.ac.il/en/news/news-and-stories/150420250940',
+  LINKEDOUT_DEMO: 'https://youtube.com/shorts/V3fuYX_JcZA?feature=share',
 } as const;

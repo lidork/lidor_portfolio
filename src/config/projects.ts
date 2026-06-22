@@ -1,7 +1,7 @@
 import { ASSET_PATHS } from './assets';
 import { EXTERNAL_LINKS } from './links';
 
-export type ProjectCategory = 'Mobile Apps' | 'Game development' | 'Full Stack' | 'Backend';
+export type ProjectCategory = 'Mobile Apps' | 'Game development' | 'Full Stack' | 'Backend' | 'Hackathon';
 
 export interface ProjectItem {
   id: string;
@@ -18,9 +18,48 @@ export interface ProjectItem {
   demoUrl?: string;
   techStack: string[];
   imageFit?: 'cover' | 'contain';
+  badge?: string;
 }
 
 export const PROJECT_ITEMS: ProjectItem[] = [
+  {
+    id: 'hackathon-mvp',
+    title: '8th National Hackathon 2025 Entry',
+    categories: ['Hackathon', 'Mobile Apps'],
+    badge: '🏆 1st Place',
+    shortDescription:
+      'Award-winning MVP built in 32 hours by a team of 4, addressing a critical vulnerability in the hospitality industry.',
+    challenge:
+      'As a team, the problem we tackled during this Hackathon was finding a solution to the Hospitality market. As a team of software developers and Computer Science majors our first thought was to build an app that could help this market. We wanted to build something that could be used in the real world, and we wanted to build it fast.',
+      approach:
+      'Led a team of 4 through rapid ideation, scoping down to the highest-impact flow, and splitting work across frontend, backend, and UX simultaneously. Built with TypeScript and React Native to target mobile-first users. Prioritised a tight, demonstrable core loop over breadth — every feature had to earn its place in the sprint.',
+    outcome:
+      'Took 1st place out of all competing teams. Delivered a functional, presentable MVP within the time limit that clearly communicated the problem, solution, and user value to the judges. The sprint validated the team\'s ability to move fast without losing clarity. Want more info? Check out the project\'s description on HIT\'s official blog post.',
+    gridImage: ASSET_PATHS.HACKATHON,
+    heroImage: ASSET_PATHS.HACKATHON,
+    demoUrl: EXTERNAL_LINKS.HACKATHON,
+    techStack: ['TypeScript', 'React Native', 'Mobile'],
+    imageFit: 'cover',
+  },
+  {
+    id: 'social-network',
+    title: 'LinkedOut — Social Network App',
+    categories: ['Mobile Apps', 'Full Stack'],
+    shortDescription:
+      'Full-stack mobile social network with real-time chat, JWT authentication, and interactive data visualisation.',
+    challenge:
+      'Most academic full-stack projects stop at CRUD. The goal here was to build something that feels like a real product: live messaging that updates without polling, auth that survives app restarts, and data dashboards that make activity legible rather than just listing it.',
+    approach:
+      'Engineered a React Native frontend with a coherent brand connected to a Node.js backend using Socket.IO for bidirectional real-time chat — messages appear instantly on both sides without any refresh. JWT tokens handle authentication with secure session persistence. MongoDB stores users, posts, and conversations. D3.js powers in-app charts that visualise engagement trends and activity patterns, giving users a way to understand their own usage.',
+    outcome:
+      'A working social network with all the core features a real product needs: accounts, social graph, real-time messaging, and a data layer. The project demonstrated end-to-end mobile app architecture — from socket events to charted analytics — built and shipped as a team.',
+    gridImage: ASSET_PATHS.SOCIAL_NETWORK,
+    heroImage: ASSET_PATHS.SOCIAL_NETWORK,
+    githubUrl: EXTERNAL_LINKS.LINKEDOUT,
+    demoUrl: EXTERNAL_LINKS.LINKEDOUT_DEMO,
+    techStack: ['JavaScript', 'React Native', 'Node.js', 'Socket.IO', 'MongoDB', 'JWT', 'D3.js'],
+    imageFit: 'cover',
+  },
   {
     id: 'pain-project',
     title: 'Pain Project',

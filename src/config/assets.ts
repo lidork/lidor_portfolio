@@ -12,4 +12,6 @@ export const ASSET_PATHS = {
   ENHANCED_BUDDY_HERO: `${base}assets/images/enhanced-buddy.png`,
   PORTFOLIO_EMBED: `${base}assets/images/og-image.png`,
   PORTFOLIO_HERO: `${base}assets/images/og-image-phone.png`,
+  HACKATHON: `${base}assets/images/hackathon-win.jpeg`,
+  SOCIAL_NETWORK: `${base}assets/images/linkedout_opening.png`,
 };
