@@ -14,4 +14,5 @@ export const ASSET_PATHS = {
   PORTFOLIO_HERO: `${base}assets/images/og-image-phone.png`,
   HACKATHON: `${base}assets/images/hackathon-win.jpeg`,
   SOCIAL_NETWORK: `${base}assets/images/linkedout_opening.png`,
+  SOCIAL_NETWORK_HERO: `${base}assets/images/linkedout_logo.png`,
 };

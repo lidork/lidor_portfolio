@@ -53,7 +53,7 @@ export const PROJECT_ITEMS: ProjectItem[] = [
       'Engineered a React Native frontend with a coherent brand connected to a Node.js backend using Socket.IO for bidirectional real-time chat — messages appear instantly on both sides without any refresh. JWT tokens handle authentication with secure session persistence. MongoDB stores users, posts, and conversations. D3.js powers in-app charts that visualise engagement trends and activity patterns, giving users a way to understand their own usage.',
     outcome:
       'A working social network with all the core features a real product needs: accounts, social graph, real-time messaging, and a data layer. The project demonstrated end-to-end mobile app architecture — from socket events to charted analytics — built and shipped as a team.',
-    gridImage: ASSET_PATHS.SOCIAL_NETWORK,
+    gridImage: ASSET_PATHS.SOCIAL_NETWORK_HERO,
     heroImage: ASSET_PATHS.SOCIAL_NETWORK,
     githubUrl: EXTERNAL_LINKS.LINKEDOUT,
     demoUrl: EXTERNAL_LINKS.LINKEDOUT_DEMO,
