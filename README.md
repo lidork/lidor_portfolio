@@ -2,8 +2,7 @@
 
 Personal portfolio website built with React, TypeScript, and Vite.
 
-Check it out here: https://lidork.github.io/lidor_portfolio/
-
+Check it out here: lidorkalfon.com
 ## Tech Stack
 
 - **React 19** + **TypeScript**
@@ -32,19 +31,31 @@ Output goes to `dist/`.
 ```
 src/
   components/
-    icons/          # MaskIcon base + named icon exports
-    sections/       # About, Resume, Portfolio page components
+    icons/              # MaskIcon base + named icon exports + skillIcons map
+    sections/           # About, Resume, Portfolio, SkillsSection, ProjectDetailModal
     Sidebar.tsx
     NavigationTabs.tsx
   config/
-    assets.ts       # Image/file paths
-    links.ts        # External URLs (GitHub, LinkedIn, CV, projects)
+    assets.ts           # Image/file paths
+    links.ts            # External URLs (GitHub, LinkedIn, CV, projects)
+    projects.ts         # Project data
+    resume.ts           # Resume content
+  hooks/
+    useTabTransition.ts
+  utils/
+    analytics.ts
   App.tsx
   main.tsx
   App.css
 public/
   assets/
-    images/         # Photos and project screenshots
-    icons/          # SVG icon files
-    files/          # Downloadable files (CV)
+    images/             # Photos, project screenshots, og-image
+    icons/              # SVG icon files
+    files/              # Downloadable files (CV)
+  CNAME                 # Custom domain (lidorkalfon.com)
+  favicon.svg
+  icons.svg
+  llms.txt              # LLM-readable profile
+  robots.txt
+  sitemap.xml
 ```
